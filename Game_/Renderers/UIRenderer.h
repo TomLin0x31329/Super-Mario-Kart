@@ -23,6 +23,7 @@ namespace Game::Renderer
             float x, y;
             float width, height;
             GLuint textureId;
+            bool flipH;
         };
         std::vector<UIDrawCommand> drawQueue_;
 
@@ -34,7 +35,7 @@ namespace Game::Renderer
 
     public:
         void Init();
-        void DrawImage(std::shared_ptr<Util::Image> image, float x, float y);
+        void DrawImage(std::shared_ptr<Util::Image> image, float x, float y, bool flipH = false);
         void Render();
 
     };

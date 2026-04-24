@@ -43,6 +43,8 @@ namespace Game::Gameplay
 		}
 
 	public:
+		void SetPosition(glm::vec2 newPos) { position_ = newPos; }
+
 		const Game::GameCore::ObjectDefinition& GetDefinition() const { return definition_; }
 		glm::vec2 GetPosition() const { return position_; }
 		bool IsActive() const { return isActive_; }

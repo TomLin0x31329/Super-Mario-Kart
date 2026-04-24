@@ -43,7 +43,7 @@ namespace Game::Renderer
             RESOURCE_DIR "/shaders/ui.frag"
         );
     }
-    void UIRenderer::DrawImage(std::shared_ptr<Util::Image> image, float x, float y)
+    void UIRenderer::DrawImage(std::shared_ptr<Util::Image> image, float x, float y, bool flipH)
     {
         if (!image) return;
 
@@ -52,7 +52,8 @@ namespace Game::Renderer
             x, y,
             image->GetSize().x,
             image->GetSize().y,
-            image->GetTextureId()
+            image->GetTextureId(),
+            flipH
             });
     }
     void UIRenderer::Render()
@@ -79,8 +80,17 @@ namespace Game::Renderer
         for (const auto& cmd : drawQueue_)
         {
             glm::mat4 model = glm::mat4(1.0f);
-            model = glm::translate(model, glm::vec3(cmd.x, cmd.y, 0.0f));
-            model = glm::scale(model, glm::vec3(cmd.width, cmd.height, 1.0f));
+            if (cmd.flipH)
+            {
+                model = glm::translate(model, glm::vec3(cmd.x + cmd.width, cmd.y, 0.0f));
+                model = glm::scale(model, glm::vec3(-cmd.width, cmd.height, 1.0f));
+            }
+            else
+            {
+                model = glm::translate(model, glm::vec3(cmd.x, cmd.y, 0.0f));
+                model = glm::scale(model, glm::vec3(cmd.width, cmd.height, 1.0f));
+            }
+            
             glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
             glActiveTexture(GL_TEXTURE0);

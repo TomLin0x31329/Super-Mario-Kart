@@ -15,6 +15,9 @@
 
 #include "Systems/LevelLoader.h"
 
+#include "Gameplay/PlayerKart.h"
+#include "Gameplay/GameObject.h"
+
 namespace Game::Application
 {
 	class App
@@ -37,6 +40,9 @@ namespace Game::Application
 		std::unique_ptr<Game::Renderer::BillboardRenderer> m_BillboardRenderer;
 		std::unique_ptr<Game::Renderer::UIRenderer> m_UIRenderer;
 
+		Game::Gameplay::PlayerKart m_Player;
+		std::unique_ptr<Game::Gameplay::GameObject> m_PlayerCollider;
+		std::vector<Game::Gameplay::GameObject> m_LevelObjects;
 		glm::vec2 m_CameraPos = { 0.0f, 0.0f };
 		float m_CameraYaw = 0.0f;
 
@@ -49,6 +55,9 @@ namespace Game::Application
 		std::shared_ptr<Util::Image> uiScoreKartIcon_;
 		std::shared_ptr<Util::Image> uiScoreCoinIcon_;
 		std::shared_ptr<Util::Image> uiScoreNumberIcon_[11];
+
+		uint32_t m_RaceStartTime = 0;
+		uint32_t m_coinCount = 0;
 
 	public:
 		void Start();

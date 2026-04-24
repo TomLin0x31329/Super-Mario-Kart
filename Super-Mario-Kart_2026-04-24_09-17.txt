@@ -1,0 +1,2788 @@
+Files Included: 31
+Estimated Tokens: ~19401
+
+==================================================
+PROJECT STRUCTURE MAP: Super-Mario-Kart
+==================================================
+Project Structure (Root):
+.
+├── .git
+├── .gitignore
+├── .vs
+├── CMakeLists.txt
+├── Game_
+│   ├── Application
+│   │   ├── App.cpp
+│   │   ├── App.h
+│   │   └── main.cpp
+│   ├── CMakeLists.txt
+│   ├── GameCore
+│   │   ├── LevelData.h
+│   │   ├── ObjectDefinition.h
+│   │   └── RetroLayout.h
+│   ├── Gameplay
+│   │   ├── GameObject.h
+│   │   └── PlayerKart.h
+│   ├── Renderers
+│   │   ├── BackgroundRenderer.cpp
+│   │   ├── BackgroundRenderer.h
+│   │   ├── BakedSurfaceRenderer.cpp
+│   │   ├── BakedSurfaceRenderer.h
+│   │   ├── BillboardRenderer.cpp
+│   │   ├── BillboardRenderer.h
+│   │   ├── UIRenderer.cpp
+│   │   └── UIRenderer.h
+│   └── Systems
+│       ├── LevelLoader.cpp
+│       └── LevelLoader.h
+├── LICENSE
+├── PTSD
+├── README.md
+├── Resources
+│   ├── .gitkeep
+│   ├── Levels
+│   │   └── Level1.json
+│   ├── audio
+│   │   ├── Click.wav
+│   │   ├── bgm
+│   │   │   └── level_1
+│   │   ├── sfx
+│   │   └── testbgm.mp3
+│   ├── fonts
+│   │   └── Inter.ttf
+│   ├── icon.png
+│   ├── shaders
+│   │   ├── Background.frag
+│   │   ├── Background.vert
+│   │   ├── Base.frag
+│   │   ├── Base.vert
+│   │   ├── Mode7.frag
+│   │   ├── Mode7.vert
+│   │   ├── Triangle.frag
+│   │   ├── Triangle.vert
+│   │   ├── ui.frag
+│   │   └── ui.vert
+│   └── sprites
+│       ├── items
+│       │   ├── coin.png
+│       │   ├── item_panels.png
+│       │   └── pipe
+│       │       ├── 1.png
+│       │       ├── 10.png
+│       │       ├── 11.png
+│       │       ├── 12.png
+│       │       ├── 2.png
+│       │       ├── 3.png
+│       │       ├── 4.png
+│       │       ├── 5.png
+│       │       ├── 6.png
+│       │       ├── 7.png
+│       │       ├── 8.png
+│       │       └── 9.png
+│       ├── karts
+│       │   ├── ai_karts
+│       │   ├── mario_kart
+│       │   │   ├── lod_0
+│       │   │   │   ├── 1.png
+│       │   │   │   ├── 10.png
+│       │   │   │   ├── 11.png
+│       │   │   │   ├── 12.png
+│       │   │   │   ├── 2.png
+│       │   │   │   ├── 3.png
+│       │   │   │   ├── 4.png
+│       │   │   │   ├── 5.png
+│       │   │   │   ├── 6.png
+│       │   │   │   ├── 7.png
+│       │   │   │   ├── 8.png
+│       │   │   │   └── 9.png
+│       │   │   ├── lod_1
+│       │   │   │   ├── 1.png
+│       │   │   │   ├── 10.png
+│       │   │   │   ├── 11.png
+│       │   │   │   ├── 12.png
+│       │   │   │   ├── 2.png
+│       │   │   │   ├── 3.png
+│       │   │   │   ├── 4.png
+│       │   │   │   ├── 5.png
+│       │   │   │   ├── 6.png
+│       │   │   │   ├── 7.png
+│       │   │   │   ├── 8.png
+│       │   │   │   └── 9.png
+│       │   │   ├── lod_2
+│       │   │   │   ├── 1.png
+│       │   │   │   ├── 10.png
+│       │   │   │   ├── 11.png
+│       │   │   │   ├── 12.png
+│       │   │   │   ├── 2.png
+│       │   │   │   ├── 3.png
+│       │   │   │   ├── 4.png
+│       │   │   │   ├── 5.png
+│       │   │   │   ├── 6.png
+│       │   │   │   ├── 7.png
+│       │   │   │   ├── 8.png
+│       │   │   │   └── 9.png
+│       │   │   ├── lod_3
+│       │   │   │   ├── 1.png
+│       │   │   │   ├── 2.png
+│       │   │   │   ├── 3.png
+│       │   │   │   ├── 4.png
+│       │   │   │   ├── 5.png
+│       │   │   │   ├── 6.png
+│       │   │   │   ├── 7.png
+│       │   │   │   └── 8.png
+│       │   │   ├── lod_4
+│       │   │   │   ├── 1.png
+│       │   │   │   ├── 2.png
+│       │   │   │   ├── 3.png
+│       │   │   │   ├── 4.png
+│       │   │   │   ├── 5.png
+│       │   │   │   ├── 6.png
+│       │   │   │   ├── 7.png
+│       │   │   │   └── 8.png
+│       │   │   ├── lod_5
+│       │   │   │   ├── 1.png
+│       │   │   │   ├── 2.png
+│       │   │   │   ├── 3.png
+│       │   │   │   └── 4.png
+│       │   │   ├── lod_6
+│       │   │   │   ├── 1.png
+│       │   │   │   ├── 2.png
+│       │   │   │   ├── 3.png
+│       │   │   │   └── 4.png
+│       │   │   └── lod_7
+│       │   │       ├── 1.png
+│       │   │       ├── 2.png
+│       │   │       ├── 3.png
+│       │   │       └── 4.png
+│       │   └── player_kart
+│       │       ├── -135.png
+│       │       ├── -45.png
+│       │       ├── -90.png
+│       │       ├── 00.png
+│       │       ├── 135.png
+│       │       ├── 180.png
+│       │       ├── 45.png
+│       │       └── 90.png
+│       ├── tracks
+│       │   └── level_1
+│       │       ├── collision.png
+│       │       ├── out_of_bounds.png
+│       │       ├── sky.png
+│       │       ├── track.png
+│       │       ├── track.webp
+│       │       └── trees.png
+│       └── ui
+│           ├── font
+│           │   ├── 0.png
+│           │   ├── 1.png
+│           │   ├── 2.png
+│           │   ├── 3.png
+│           │   ├── 4.png
+│           │   ├── 5.png
+│           │   ├── 6.png
+│           │   ├── 7.png
+│           │   ├── 8.png
+│           │   ├── 9.png
+│           │   └── x.png
+│           ├── item_slot.png
+│           ├── score
+│           │   ├── coin.png
+│           │   ├── kart.png
+│           │   └── number
+│           │       ├── 0.png
+│           │       ├── 1.png
+│           │       ├── 2.png
+│           │       ├── 3.png
+│           │       ├── 4.png
+│           │       ├── 5.png
+│           │       ├── 6.png
+│           │       ├── 7.png
+│           │       ├── 8.png
+│           │       ├── 9.png
+│           │       └── multiply.png
+│           └── time
+│               └── number
+│                   ├── 0.png
+│                   ├── 1.png
+│                   ├── 2.png
+│                   ├── 3.png
+│                   ├── 4.png
+│                   ├── 5.png
+│                   ├── 6.png
+│                   ├── 7.png
+│                   ├── 8.png
+│                   ├── 9.png
+│                   └── comma.png
+├── config.json
+├── external
+│   └── nlohmann
+│       ├── json.hpp
+│       └── json_fwd.hpp
+├── files.cmake
+├── out
+└── pack_project.exe
+
+
+
+
+==================================================
+FILE CONTENTS
+==================================================
+
+
+--- START FILE: CMakeLists.txt ---
+cmake_minimum_required(VERSION 3.16)
+set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
+project(SuperMarioKart)
+
+#set(FETCHCONTENT_FULLY_DISCONNECTED ON)
+
+set(CMAKE_CXX_STANDARD 17)
+
+
+set(BUILD_UTILS OFF CACHE BOOL "Disable GLEW utilities" FORCE)
+# 關閉所有標準測試程式編譯
+set(BUILD_TESTING OFF CACHE BOOL "Disable tests" FORCE)
+# 隱藏那些不是你寫的 CMake 目標，不讓它們出現在預設編譯清單中
+set(CMAKE_FOLDER "ThirdParty")
+
+# 關閉 SDL2_image 的範例 (消除 showimage, showanim)
+set(SDL2IMAGE_SAMPLES OFF CACHE BOOL "Disable SDL2_image samples" FORCE)
+set(SDL2IMAGE_TESTS   OFF CACHE BOOL "Disable SDL2_image tests" FORCE)
+# 關閉 SDL2_ttf 的範例 (消除 glfont, showfont)
+set(SDL2TTF_SAMPLES   OFF CACHE BOOL "Disable SDL2_ttf samples" FORCE)
+# 關閉 SDL2_mixer 的範例 (消除 playwave, playmus)
+set(SDL2MIXER_SAMPLES OFF CACHE BOOL "Disable SDL2_mixer samples" FORCE)
+# 關閉 SDL2 底層的測試
+set(SDL_TEST          OFF CACHE BOOL "Disable SDL2 tests" FORCE)
+set(SDL_TESTS         OFF CACHE BOOL "Disable SDL2 tests" FORCE)
+# 關閉 GLEW 的工具 (你之前加的)
+set(BUILD_UTILS       OFF CACHE BOOL "Disable GLEW utilities" FORCE)
+set(BUILD_TESTING     OFF CACHE BOOL "Disable tests" FORCE)
+
+
+# 1. 抓取 PTSD 遊戲引擎
+include(FetchContent)
+set(FETCHCONTENT_QUIET FALSE)
+
+#FetchContent_Declare(
+#    ptsd
+#    URL         https://github.com/ntut-open-source-club/practical-tools-for-simple-design/archive/refs/tags/v0.2.zip
+#    SOURCE_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/PTSD
+#)
+#FetchContent_MakeAvailable(ptsd)
+add_subdirectory(PTSD)
+include_directories(external)
+
+# 2. 讓 PTSD 知道外部依賴
+target_include_directories(PTSD SYSTEM PRIVATE ${DEPENDENCY_INCLUDE_DIRS})
+
+# 3. 將編譯任務交棒給 Game 資料夾
+add_subdirectory(Game_)
+
+
+--- END FILE: CMakeLists.txt ---
+
+
+--- START FILE: Game_\CMakeLists.txt ---
+# 1. 自動遞迴搜尋當前目錄 (Game) 下所有的 .cpp 和 .hpp 檔案
+file(GLOB_RECURSE GAME_FILES_
+    "pch.hpp"
+    "Application/*.cpp" "Application/*.h"
+    "GameCore/*.cpp"    "GameCore/*.h"
+    "Gameplay/*.cpp"    "Gameplay/*.h"
+    "Renderers/*.cpp"   "Renderers/*.h"
+    "Systems/*.cpp"     "Systems/*.h"
+)
+ 
+# 2. 建立執行檔目標
+add_executable(MyGame_ ${GAME_FILES_})
+
+# 3. 連結 PTSD 引擎與 SDL2main
+# 注意：這裡可以直接用到 PTSD，因為根目錄已經先 build 好 PTSD 模組了
+target_link_libraries(MyGame_
+    SDL2::SDL2main
+    PTSD
+)
+
+# 1. 告訴編譯器：引擎的標頭檔 (在 PTSD/include 下) 和外部依賴在哪裡
+target_include_directories(MyGame_ SYSTEM PRIVATE
+    ${CMAKE_SOURCE_DIR}/PTSD/include   # 🌟 重點：加上 PTSD/include，這樣才找得到 Core/ 和 Util/
+    ${DEPENDENCY_INCLUDE_DIRS}       
+)
+
+# 2. 告訴編譯器：你自己的遊戲標頭檔在哪裡
+# CMAKE_CURRENT_SOURCE_DIR 目前已經代表 "Game" 資料夾了，所以只要接 "/include" 就好
+target_include_directories(MyGame_ PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR} 
+)
+
+# 5. 定義資源資料夾巨集 (指向根目錄的 Resource)
+# CMAKE_SOURCE_DIR 代表的是「最上層根目錄」，而 CMAKE_CURRENT_SOURCE_DIR 是 Game 目錄
+target_compile_definitions(MyGame_ PRIVATE RESOURCE_DIR="${CMAKE_SOURCE_DIR}/Resources")
+
+
+--- END FILE: Game_\CMakeLists.txt ---
+
+
+--- START FILE: Game_\Application\App.cpp ---
+#include "App.h"
+
+#include <iostream>
+#include "Util/Image.hpp"
+#include "Util/Input.hpp"
+#include "Util/Keycode.hpp"
+#include "Util/Logger.hpp"
+
+#include <SDL_image.h>
+#include "Core/Texture.hpp"
+#include "Core/TextureUtils.hpp"
+#include "GameCore/RetroLayout.h"
+
+#include "Gameplay/PlayerKart.h"
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
+namespace
+{
+	// 計算兩個角度之間的最短距離 (-PI 到 PI)
+	float GetShortestAngle(float target, float current)
+	{
+		float diff = std::fmod(target - current, 2.0f * (float)M_PI);
+		if (diff > (float)M_PI) diff -= 2.0f * (float)M_PI;
+		if (diff < -(float)M_PI) diff += 2.0f * (float)M_PI;
+		return diff;
+	}
+}
+
+namespace Game::Application
+{
+	void App::Start()
+	{
+		LOG_TRACE("Start");
+
+		// --- 創建 FBO ---
+		{
+			glGenFramebuffers(1, &m_Fbo);
+			glBindFramebuffer(GL_FRAMEBUFFER, m_Fbo);
+
+			glGenTextures(1, &m_ColorTex);
+			glBindTexture(GL_TEXTURE_2D, m_ColorTex);
+
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB,
+				Game::GameCore::RETRO_LAYOUT.width, Game::GameCore::RETRO_LAYOUT.height,
+				0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
+			glFramebufferTexture2D(GL_FRAMEBUFFER,
+				GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_ColorTex, 0);
+
+			glGenRenderbuffers(1, &m_DepthRbo);
+			glBindRenderbuffer(GL_RENDERBUFFER, m_DepthRbo);
+			glRenderbufferStorage(
+				GL_RENDERBUFFER, GL_DEPTH24_STENCIL8,
+				Game::GameCore::RETRO_LAYOUT.width, Game::GameCore::RETRO_LAYOUT.height);
+			glFramebufferRenderbuffer(
+				GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, m_DepthRbo);
+		}
+
+		// --- 初始化 Renderers ---
+		{
+			// 初始化天空與樹木背景
+			m_SkyboxRenderer = std::make_unique<Game::Renderer::BackgroundRenderer>(
+				RESOURCE_DIR "/sprites/tracks/level_1/sky.png", 2.0f);
+			m_SkyboxRenderer->Init();
+
+			m_TreesRenderer = std::make_unique<Game::Renderer::BackgroundRenderer>(
+				RESOURCE_DIR "/sprites/tracks/level_1/trees.png", 3.5f);
+			m_TreesRenderer->Init();
+
+			// 初始化 Mode 7 賽道
+			m_BakedRenderer = std::make_unique<Game::Renderer::BakedSurfaceRenderer>();
+			m_BakedRenderer->Init(
+				RESOURCE_DIR "/sprites/tracks/level_1/track.png",
+				RESOURCE_DIR "/sprites/tracks/level_1/out_of_bounds.png"
+			);
+
+			// 初始化告示牌渲染器
+			m_BillboardRenderer = std::make_unique<Game::Renderer::BillboardRenderer>();
+			m_BillboardRenderer->Init();
+
+			// 初始化 UI 渲染器
+			m_UIRenderer = std::make_unique<Game::Renderer::UIRenderer>();
+			m_UIRenderer->Init();
+		}
+
+		// --- 初始化場景物件 ---
+		{
+			// 讀取關卡資料
+			levelData_ = Game::Systems::LevelLoader::LoadLevel(RESOURCE_DIR "/Levels/Level1.json");
+
+			// 設置pipe LOD
+			m_PipeDefinition.collisionRadius = 6.0f;
+			float lodDistances[12] = {
+				120.0f,   // 1.png 
+				160.0f,  // 2.png
+				200.0f,  // 3.png
+				240.0f,  // 4.png
+				280.0f,  // 5.png
+				320.0f,  // 6.png
+				380.0f,  // 7.png
+				440.0f,  // 8.png
+				600.0f,  // 9.png
+				800.0f, // 10.png
+				2000.0f, // 11.png
+				2400.0f  // 12.png
+			};
+			for (int i = 0; i < 12; ++i)
+			{
+				Game::GameCore::SpriteLOD lod;
+				lod.maxDistance = lodDistances[i];
+
+				Game::GameCore::DirectionalSprite sprite;
+				sprite.angle = 0.0f;
+
+				std::string path = std::string(RESOURCE_DIR) + "/sprites/items/pipe/" + std::to_string(i + 1) + ".png";
+				sprite.image = std::make_shared<Util::Image>(path);
+
+				lod.sprites.push_back(sprite);
+				m_PipeDefinition.lods.push_back(lod);
+			}
+
+			// ==========================================
+			// 🌟 1. 初始化所有地圖上的 GameObject (物理碰撞體)
+			// ==========================================
+			m_LevelObjects.clear(); // 確保清空
+
+			// 初始化金幣
+			Game::GameCore::ObjectDefinition coinDef;
+			coinDef.collisionRadius = 6.0f; // 金幣比較小，碰撞半徑設小一點
+			for (const auto& pos : levelData_.coins)
+			{
+				m_LevelObjects.emplace_back(
+					pos * 1.6f, // 🌟 極度重要：因為你的視覺座標放大了 1.6 倍，物理座標也要對應放大！
+					coinDef,
+					Game::Gameplay::ObjectType::Coin
+				);
+			}
+			// 初始化道具箱
+			Game::GameCore::ObjectDefinition itemBoxDef;
+			itemBoxDef.collisionRadius = 14.0f;
+			for (const auto& box : levelData_.itemBoxes)
+			{
+				m_LevelObjects.emplace_back(
+					box.pos * 1.6f,
+					itemBoxDef,
+					Game::Gameplay::ObjectType::ItemBox
+				);
+			}
+			// 初始化水管
+			for (const auto& pos : levelData_.pipes)
+			{
+				m_LevelObjects.emplace_back(
+					pos * 1.6f,
+					m_PipeDefinition, // 水管直接沿用上面設定好的 LOD 定義
+					Game::Gameplay::ObjectType::Pipe
+				);
+			}
+			LOG_INFO("Successfully initialized {} physical level objects.", m_LevelObjects.size());
+
+
+			// 載入金幣圖片並蓋印到賽道上
+			SDL_Surface* coinSurface = IMG_Load(RESOURCE_DIR "/sprites/items/coin.png");
+			if (coinSurface)
+			{
+				m_BakedRenderer->BakeObject(coinSurface, levelData_.coins);
+				SDL_FreeSurface(coinSurface);
+				LOG_INFO("Successfully baked {} coins onto the track.", levelData_.coins.size());
+			}
+			else
+			{
+				LOG_ERROR("Failed to load coin sprite for baking: {}", IMG_GetError());
+			}
+
+			// 載入 Item box 圖片並透過蓋印到賽道上
+			SDL_Surface* itemBoxSurface = IMG_Load(RESOURCE_DIR "/sprites/items/item_panels.png");
+			if (itemBoxSurface)
+			{
+				// 🌟 建立一個通用的烘焙佇列
+				std::vector<Game::Renderer::RotatedBakeItem> bakeItems;
+
+				// 🌟 由 App 來負責「翻譯」：把遊戲邏輯的 ItemBoxData 轉成純渲染指令
+				for (const auto& box : levelData_.itemBoxes) {
+					bakeItems.push_back({ box.pos, box.direction });
+				}
+
+				// 把翻譯好的指令丟給渲染器
+				m_BakedRenderer->BakeRotatedObjects(itemBoxSurface, bakeItems);
+
+				SDL_FreeSurface(itemBoxSurface);
+				LOG_INFO("Successfully baked {} item boxes onto the track.", levelData_.itemBoxes.size());
+			}
+
+			// 初始化 PlayerKart
+			m_Player.Init();
+			Game::GameCore::ObjectDefinition playerDef;
+			playerDef.collisionRadius = 4.0f;
+			m_PlayerCollider = std::make_unique<Game::Gameplay::GameObject>(
+				m_Player.Position,
+				playerDef,
+				Game::Gameplay::ObjectType::Player,
+				[this](Game::Gameplay::GameObject* self, Game::Gameplay::GameObject* other) {
+					// 🌟 當玩家碰到東西時會觸發這裡！
+					if (other->GetType() == Game::Gameplay::ObjectType::Coin) {
+						LOG_INFO("Hit coin");
+						m_coinCount++;
+						other->Deactivate(); // 讓金幣消失
+						m_BakedRenderer->RestoreBakedObject({ 7, 7 }, { other->GetPosition() / 1.6f });
+					}
+					else if (other->GetType() == Game::Gameplay::ObjectType::Pipe) {
+						LOG_INFO("Hit pipe");
+						// 可以在這裡讓 m_Player 減速或是彈開
+						m_Player.Velocity *= 0.3f;
+					}
+				}
+			);
+		}
+
+		// --- 初始化 UI 物件 ---
+		{
+			// Timer
+			uiItemSlotIcon_ = std::make_shared<Util::Image>(
+				RESOURCE_DIR "/sprites/ui/item_slot.png");
+			for (int i = 0; i < 10; ++i)
+			{
+				uiTimeNumberIcon_[i] = std::make_shared<Util::Image>(
+					RESOURCE_DIR "/sprites/ui/time/number/" + std::to_string(i) + ".png");
+			}
+			uiTimeNumberIcon_[10] = std::make_shared<Util::Image>(
+				RESOURCE_DIR "/sprites/ui/time/number/comma.png");
+
+			// Score
+			uiScoreKartIcon_ = std::make_shared<Util::Image>(
+				RESOURCE_DIR "/sprites/ui/score/kart.png");
+			uiScoreCoinIcon_ = std::make_shared<Util::Image>(
+				RESOURCE_DIR "/sprites/ui/score/coin.png");
+			for (int i = 0; i < 10; ++i)
+			{
+				uiScoreNumberIcon_[i] = std::make_shared<Util::Image>(
+					RESOURCE_DIR "/sprites/ui/score/number/" + std::to_string(i) + ".png");
+			}
+			uiScoreNumberIcon_[10] = std::make_shared<Util::Image>(
+				RESOURCE_DIR "/sprites/ui/score/number/multiply.png");
+
+		}
+
+		// --- 初始化攝像機 ---
+		{
+			if (!levelData_.startingGrid.empty())
+			{
+				m_CameraPos.x = levelData_.startingGrid[0].pos.x * 1.6;
+				m_CameraPos.y = levelData_.startingGrid[0].pos.y * 1.6;
+				m_CameraYaw = levelData_.initialYaw;
+			}
+		}
+
+		m_RaceStartTime = SDL_GetTicks();
+		m_coinCount = 0;
+
+		m_CurrentState = State::UPDATE;
+	}
+	void App::Update()
+	{
+		// --- 處理輸入和更新 ---
+		{
+			// 關閉程式
+			if (Util::Input::IfExit() || Util::Input::IsKeyUp(Util::Keycode::ESCAPE))
+			{
+				m_CurrentState = State::END;
+				return;
+			}
+
+
+			// 1. 更新卡丁車物理
+			float dt = 0.016f; // (實務上應該用真正的 DeltaTime)
+			m_Player.Update(dt, levelData_.collisionMap);
+			m_PlayerCollider->SetPosition(m_Player.Position);
+
+			for (auto& obj : m_LevelObjects)
+			{
+				if (obj.IsActive())
+				{
+					// 讓玩家的代理碰撞體，去跟場景上的每一個物件做碰撞測試
+					m_PlayerCollider->UpdateCollision(obj);
+				}
+			}
+
+			// ==========================================
+			// 2. 鏡頭綁定 (Camera Follow)
+			// ==========================================
+			// 鏡頭位置跟隨車子位置
+			m_CameraPos = m_Player.Position;
+
+			// 🌟 鏡頭方向跟隨「實際飛行方向 (Velocity)」，而不是車頭方向！
+			// 如果車子有速度才更新鏡頭角度，否則維持原樣
+			if (glm::length(m_Player.Velocity) > 5.0f)
+			{
+				// 🌟 鏡頭的朝向，直接從「實際前進向量 (Velocity)」提取角度！
+				float velocityAngle = std::atan2(m_Player.Velocity.x, -m_Player.Velocity.y);
+
+				// 使用最短路徑平滑追蹤鏡頭 (確保畫面不會抖動)
+				float angleDiff = GetShortestAngle(velocityAngle, m_CameraYaw);
+				m_CameraYaw += angleDiff * 0.15f;
+
+				// 防止浮點數溢位
+				m_CameraYaw = std::fmod(m_CameraYaw, 2.0f * (float)M_PI);
+				if (m_CameraYaw > (float)M_PI) m_CameraYaw -= 2.0f * (float)M_PI;
+				if (m_CameraYaw < -(float)M_PI) m_CameraYaw += 2.0f * (float)M_PI;
+			}
+			// 取得攝影機目前看過去的方向
+			glm::vec2 cameraForward = { std::sin(m_CameraYaw), -std::cos(m_CameraYaw) };
+
+			// 攝影機距離車子的 3D 深度距離
+			// 這個數字決定了旋轉軸心，150.0f 是一個完美的基準值，你可以微調它
+			float cameraDistance = 150.0f;
+
+			// 🌟 把攝影機從車子的位置「往後退」，讓車子成為旋轉的圓心！
+			m_CameraPos = m_Player.Position - cameraForward * cameraDistance;
+
+			if (Util::Input::IsKeyDown(Util::Keycode::R))
+			{
+				m_Player.Init();
+				m_Player.Position = levelData_.startingGrid[0].pos * 1.6f;
+				m_Player.ExpectedDir = { 0.0f, -1.0f };
+				m_Player.Velocity = { 0.0f, -0.01f };
+
+				m_CameraYaw = 0.0f;
+
+				m_RaceStartTime = SDL_GetTicks();
+				m_coinCount = 0;
+			}
+			if (Util::Input::IsKeyDown(Util::Keycode::SPACE))
+			{
+				LOG_INFO("Camera Pos -> X: {:.1f}, Z: {:.1f}",
+					m_CameraPos.x / 1.6, m_CameraPos.y / 1.6);
+			}
+		}
+
+		// --- 清除上一幀畫面 ---
+		{
+			glBindFramebuffer(GL_FRAMEBUFFER, m_Fbo);
+			glViewport(0, 0,
+				Game::GameCore::RETRO_LAYOUT.width,
+				Game::GameCore::RETRO_LAYOUT.height);
+			glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		}
+
+		// --- 渲染場景 ---
+		{
+			// 開啟剪裁測試
+			glEnable(GL_SCISSOR_TEST);
+			const auto& layout = Game::GameCore::RETRO_LAYOUT;
+			glScissor(0, layout.GetTrackY(), layout.width, layout.height - layout.GetTrackY());
+
+			// 繪製背景
+			glViewport(0, Game::GameCore::RETRO_LAYOUT.GetSkyY(),
+				Game::GameCore::RETRO_LAYOUT.width,
+				Game::GameCore::RETRO_LAYOUT.sky);
+			m_SkyboxRenderer->Draw(m_CameraYaw);
+			m_TreesRenderer->Draw(m_CameraYaw);
+			// 繪製賽道
+			glViewport(0, Game::GameCore::RETRO_LAYOUT.GetTrackY(),
+				Game::GameCore::RETRO_LAYOUT.width,
+				Game::GameCore::RETRO_LAYOUT.track);
+			m_BakedRenderer->Draw(m_CameraPos, m_CameraYaw, 0.04f);
+
+			// 恢復 Viewport
+			glViewport(0, 0,
+				Game::GameCore::RETRO_LAYOUT.width,
+				Game::GameCore::RETRO_LAYOUT.height);
+
+			// 繪製水管
+			std::vector<Game::Renderer::BillboardItem> renderItems;
+			for (const auto& pipePos : levelData_.pipes)
+			{
+				Game::Renderer::BillboardItem item;
+				item.worldPos.x = pipePos.x * 1.6f;
+				item.worldPos.y = pipePos.y * 1.6f;
+				item.yaw = 0.0f;
+				item.definition = &m_PipeDefinition;
+
+				renderItems.push_back(item);
+			}
+			m_BillboardRenderer->Draw(m_CameraPos, m_CameraYaw, 0.04f, renderItems);
+
+			// 關閉剪裁測試
+			glDisable(GL_SCISSOR_TEST);
+		}
+		// --- 渲染 UI ---
+		{
+			// Item Slot
+			m_UIRenderer->DrawImage(uiItemSlotIcon_, 147.0f, 5.0f);
+			// Timer
+			uint32_t currentTimeMs = SDL_GetTicks() - m_RaceStartTime;
+			uint32_t minutes = (currentTimeMs / 60000) % 100;
+			uint32_t seconds = (currentTimeMs / 1000) % 60;
+			uint32_t centiseconds = (currentTimeMs / 10) % 100;
+			int m10 = minutes / 10;
+			int m1 = minutes % 10;
+			int s10 = seconds / 10;
+			int s1 = seconds % 10;
+			int ms10 = centiseconds / 10;
+			int ms1 = centiseconds % 10;
+			m_UIRenderer->DrawImage(uiTimeNumberIcon_[m10], 176.0f, 7.0f);
+			m_UIRenderer->DrawImage(uiTimeNumberIcon_[m1], 184.0f, 7.0f);
+			m_UIRenderer->DrawImage(uiTimeNumberIcon_[10], 192.0f, 7.0f);
+			m_UIRenderer->DrawImage(uiTimeNumberIcon_[s10], 200.0f, 7.0f);
+			m_UIRenderer->DrawImage(uiTimeNumberIcon_[s1], 208.0f, 7.0f);
+			m_UIRenderer->DrawImage(uiTimeNumberIcon_[10], 216.0f, 7.0f);
+			m_UIRenderer->DrawImage(uiTimeNumberIcon_[10], 219.0f, 7.0f);
+			m_UIRenderer->DrawImage(uiTimeNumberIcon_[ms10], 224.0f, 7.0f);
+			m_UIRenderer->DrawImage(uiTimeNumberIcon_[ms1], 232.0f, 7.0f);
+
+			// Kart
+			m_UIRenderer->DrawImage(uiScoreKartIcon_, 186.0f, 85.0f);
+			m_UIRenderer->DrawImage(uiScoreNumberIcon_[10], 198.0f, 85.0f);
+			m_UIRenderer->DrawImage(uiScoreNumberIcon_[3], 206.0f, 85.0f);
+			// Coin
+			m_UIRenderer->DrawImage(uiScoreCoinIcon_, 190.0f, 92.0f);
+			m_UIRenderer->DrawImage(uiScoreNumberIcon_[10], 198.0f, 93.0f);
+			m_UIRenderer->DrawImage(uiScoreNumberIcon_[m_coinCount / 10], 206.0f, 93.0f);
+			m_UIRenderer->DrawImage(uiScoreNumberIcon_[m_coinCount % 10], 214.0f, 93.0f);
+
+			m_UIRenderer->Render();
+		}
+
+		// --- 渲染 PlayerKart ---
+		{
+			auto kartImage = m_Player.CurrentSprite;
+			if (kartImage)
+			{
+				float kartDrawX = 128.0f - (kartImage->GetSize().x * 0.5f);
+				float kartDrawY = 80.0f - (kartImage->GetSize().y * 0.5f);
+
+				m_UIRenderer->DrawImage(kartImage, kartDrawX, kartDrawY, m_Player.ShouldFlipSprite);
+			}
+			m_UIRenderer->Render();
+		}
+
+		m_Root.Update();
+
+		// --- 放大 FBO 並顯示 ---
+		{
+			glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+			glViewport(0, 0,
+				Game::GameCore::RETRO_LAYOUT.width * Game::GameCore::RETRO_LAYOUT.pixelScale,
+				Game::GameCore::RETRO_LAYOUT.height * Game::GameCore::RETRO_LAYOUT.pixelScale);
+			glBlitFramebuffer(
+				0, 0,
+				Game::GameCore::RETRO_LAYOUT.width,
+				Game::GameCore::RETRO_LAYOUT.height,
+				0, 0,
+				Game::GameCore::RETRO_LAYOUT.width * Game::GameCore::RETRO_LAYOUT.pixelScale,
+				Game::GameCore::RETRO_LAYOUT.height * Game::GameCore::RETRO_LAYOUT.pixelScale,
+				GL_COLOR_BUFFER_BIT, GL_NEAREST);
+		}
+	}
+	void App::End()
+	{
+		LOG_TRACE("End");
+	}
+}
+
+
+--- END FILE: Game_\Application\App.cpp ---
+
+
+--- START FILE: Game_\Application\App.h ---
+#pragma once
+
+#include <GL/glew.h>
+#include "pch.hpp" // IWYU pragma: export
+#include "Util/Renderer.hpp"
+
+#include "GameCore/LevelData.h"
+#include "GameCore/ObjectDefinition.h"
+#include "GameCore/RetroLayout.h"
+
+#include "Renderers/BackgroundRenderer.h"
+#include "Renderers/BakedSurfaceRenderer.h"
+#include "Renderers/BillboardRenderer.h"
+#include "Renderers/UIRenderer.h"
+
+#include "Systems/LevelLoader.h"
+
+#include "Gameplay/PlayerKart.h"
+#include "Gameplay/GameObject.h"
+
+namespace Game::Application
+{
+	class App
+	{
+	public:
+		enum class State { START, UPDATE, END, };
+
+	private:
+		State m_CurrentState = State::START;
+
+		GLuint m_Fbo = 0;
+		GLuint m_ColorTex = 0;
+		GLuint m_DepthRbo = 0;
+
+		Util::Renderer m_Root;
+
+		std::unique_ptr<Game::Renderer::BackgroundRenderer> m_SkyboxRenderer;
+		std::unique_ptr<Game::Renderer::BackgroundRenderer> m_TreesRenderer;
+		std::unique_ptr<Game::Renderer::BakedSurfaceRenderer> m_BakedRenderer;
+		std::unique_ptr<Game::Renderer::BillboardRenderer> m_BillboardRenderer;
+		std::unique_ptr<Game::Renderer::UIRenderer> m_UIRenderer;
+
+		Game::Gameplay::PlayerKart m_Player;
+		std::unique_ptr<Game::Gameplay::GameObject> m_PlayerCollider;
+		std::vector<Game::Gameplay::GameObject> m_LevelObjects;
+		glm::vec2 m_CameraPos = { 0.0f, 0.0f };
+		float m_CameraYaw = 0.0f;
+
+		Game::GameCore::LevelData levelData_;
+		Game::GameCore::ObjectDefinition m_PipeDefinition;
+
+		std::shared_ptr<Util::Image> uiItemSlotIcon_;
+		std::shared_ptr<Util::Image> uiTimeNumberIcon_[11];
+
+		std::shared_ptr<Util::Image> uiScoreKartIcon_;
+		std::shared_ptr<Util::Image> uiScoreCoinIcon_;
+		std::shared_ptr<Util::Image> uiScoreNumberIcon_[11];
+
+		uint32_t m_RaceStartTime = 0;
+		uint32_t m_coinCount = 0;
+
+	public:
+		void Start();
+		void Update();
+		void End();
+
+		State GetCurrentState() const { return m_CurrentState; }
+
+	};
+}
+
+
+--- END FILE: Game_\Application\App.h ---
+
+
+--- START FILE: Game_\Application\main.cpp ---
+#include "pch.hpp"
+#include "Core/Context.hpp"
+
+#include "Application/App.h"
+#include "GameCore/RetroLayout.h"
+
+
+int main(int argc, char* argv[]) 
+{
+    Game::Application::App app;
+    auto context = Core::Context::GetInstance(
+        Game::GameCore::RETRO_LAYOUT.width * Game::GameCore::RETRO_LAYOUT.pixelScale,
+        Game::GameCore::RETRO_LAYOUT.height * Game::GameCore::RETRO_LAYOUT.pixelScale);
+
+    // set icon in window.
+    context->SetWindowIcon(RESOURCE_DIR "/icon.png");
+
+    while (!context->GetExit()) 
+    {
+        context->Setup();
+
+        switch (app.GetCurrentState()) 
+        {
+        case  Game::Application::App::State::START:
+            app.Start();
+            break;
+
+        case  Game::Application::App::State::UPDATE:
+            app.Update();
+            break;
+
+        case  Game::Application::App::State::END:
+            app.End();
+            context->SetExit(true);
+            break;
+        }
+
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        context->Update();
+    }
+
+    return 0;
+}
+
+
+--- END FILE: Game_\Application\main.cpp ---
+
+
+--- START FILE: Game_\GameCore\LevelData.h ---
+#pragma once
+
+#include "pch.hpp"
+#include <glm/glm.hpp>
+
+namespace Game::GameCore
+{
+    struct CollisionMap
+    {
+        int width = 0;
+        int height = 0;
+        std::vector<uint8_t> pixels;
+
+        bool GetPixelColor(int x, int y, uint8_t& r, uint8_t& g, uint8_t& b) const
+        {
+            if (x < 0 || x >= width || y < 0 || y >= height) return false;
+
+            int index = (y * width + x) * 4;
+            r = pixels[index];
+            g = pixels[index + 1];
+            b = pixels[index + 2];
+            return true;
+        }
+    };
+    struct StartingPosition
+    {
+        int id;
+        glm::vec2 pos;
+    };
+    struct ItemBoxData
+    {
+        glm::vec2 pos;
+        int direction;
+    };
+
+    struct LevelData
+    {
+        std::string name;
+        int totalLaps = 3;
+        float initialYaw = 0.0f;
+
+        std::vector<StartingPosition> startingGrid;
+
+        std::vector<glm::vec2> coins;
+        std::vector<ItemBoxData> itemBoxes;
+
+        std::vector<glm::vec2> pipes;
+
+        CollisionMap collisionMap;
+    };
+}
+
+
+--- END FILE: Game_\GameCore\LevelData.h ---
+
+
+--- START FILE: Game_\GameCore\ObjectDefinition.h ---
+#pragma once
+
+#include "pch.hpp"
+
+#include "Util/Image.hpp"
+
+namespace Game::GameCore
+{
+    struct DirectionalSprite
+    {
+        float angle;
+        std::shared_ptr<Util::Image> image;
+    };
+    struct SpriteLOD
+    {
+        float maxDistance;
+        std::vector<DirectionalSprite> sprites;
+    };
+    struct ObjectDefinition
+    {
+        float collisionRadius = 16.0f;
+        std::vector<SpriteLOD> lods;
+    };
+}
+
+
+--- END FILE: Game_\GameCore\ObjectDefinition.h ---
+
+
+--- START FILE: Game_\GameCore\RetroLayout.h ---
+#pragma once
+
+namespace Game::GameCore
+{
+	struct RetroLayout
+	{
+		int width = 256;
+		int height = 224;
+
+		int topBar = 3;
+		int sky = 21;
+		int track = 83;
+		int midBar = 8;
+		int map = 104;
+		int bottomBar = 5;
+
+		float pixelScale = 2.0f;
+
+		// 計算每個區塊的 Y 軸起點
+		int GetMapY() const { return bottomBar; }
+		int GetTrackY() const { return GetMapY() + map + midBar; }
+		int GetSkyY() const { return GetTrackY() + track; }
+	};
+
+	static RetroLayout RETRO_LAYOUT;
+}
+
+
+--- END FILE: Game_\GameCore\RetroLayout.h ---
+
+
+--- START FILE: Game_\Gameplay\GameObject.h ---
+#pragma once
+
+#include "pch.hpp"
+
+#include "GameCore/ObjectDefinition.h"
+
+namespace Game::Gameplay
+{
+	class GameObject;
+
+	struct PlayerData
+	{
+		glm::vec2 position;
+
+		std::function<void(GameObject* thisPtr, int deltaCoins)> onCollectionCoins;
+		std::function<void(GameObject* thisPtr, int checkpointId)> onPathCheckpoint;
+		std::function<void(GameObject* thisPtr, float speedPenalty, float spinEffect)> onCollisionEffect;
+		std::function<void(GameObject* thisPtr)> onErrorDirection;
+	};
+	using CollisionCallback = std::function<void(GameObject* self, GameObject* other)>;
+	enum class ObjectType { Player, Coin, Pipe, ItemBox };
+	class GameObject
+	{
+	private:
+		Game::GameCore::ObjectDefinition definition_;
+		glm::vec2 position_{ 0 };
+		bool isActive_ = true;
+
+		ObjectType type_;              
+		CollisionCallback onCollide_;  
+
+	public:
+		GameObject(
+			glm::vec2 position,
+			Game::GameCore::ObjectDefinition definition,
+			ObjectType type,
+			CollisionCallback onCollide = nullptr)
+			: position_(position),
+			definition_(std::move(definition)),
+			type_(type),
+			onCollide_(std::move(onCollide))
+		{
+		}
+
+	public:
+		void SetPosition(glm::vec2 newPos) { position_ = newPos; }
+
+		const Game::GameCore::ObjectDefinition& GetDefinition() const { return definition_; }
+		glm::vec2 GetPosition() const { return position_; }
+		bool IsActive() const { return isActive_; }
+		ObjectType GetType() const { return type_; }
+
+		void Deactivate() { isActive_ = false; }
+		void Activate() { isActive_ = true; }
+
+		void UpdateCollision(GameObject& other)
+		{
+			if (!isActive_ || !other.IsActive()) return;
+			if (this == &other) return;
+
+			float dist = glm::length(position_ - other.GetPosition());
+			if (dist < definition_.collisionRadius + other.GetDefinition().collisionRadius)
+			{
+				if (this->onCollide_) this->onCollide_(this, &other);
+				if (other.onCollide_) other.onCollide_(&other, this);
+			}
+		}
+
+	};
+}
+
+
+--- END FILE: Game_\Gameplay\GameObject.h ---
+
+
+--- START FILE: Game_\Gameplay\PlayerKart.h ---
+#pragma once
+#include "Util/Logger.hpp"
+
+#include "pch.hpp"
+#include <glm/glm.hpp>
+#include <string>
+#include <cmath>
+#include <algorithm>
+#include <vector>
+#include "Util/Input.hpp"
+#include "Util/Keycode.hpp"
+
+#include <iostream>
+
+#include "GameCore/LevelData.h"
+
+namespace Game::Gameplay
+{
+    struct AccelTier
+    {
+        float speedLimit;
+        float accelRate;
+    };
+
+    class PlayerKart
+    {
+    public:
+        glm::vec2 Position = { 920.0f * 1.6f, 589.0f * 1.6f };
+        glm::vec2 ExpectedDir = { 0.0f, -1.0f }; // 車頭朝向向量
+        glm::vec2 Velocity = { 0.0f, -0.01f };   // 真實移動向量 (包含速度大小)
+
+        // --- LOD 區間加速度 ---
+        std::vector<AccelTier> AccelerationCurve = {
+            { 150.0f, 240.0f },  // 起步：加速度適中，好控車
+            { 450.0f, 420.0f },  // 中段：爆發力強，推背感
+            { 9999.f, 150.0f }   // 尾速：加速度銳減，很難到達極速
+        };
+
+        float MaxSpeed = 400.0f;
+        float Deceleration = 200.0f; // 自然滑行減阻
+        float BrakePower = 600.0f;   // 煞車力度
+
+        // --- 轉向與側滑參數 ---
+        float TurnRate = 2.0f; // 方向盤轉速 (弧度/秒)
+
+        // 🌟 移動向量跟隨轉向的比例 (核心魔法)
+        // 1.0 = 不打滑的軌道車，0.5 = 移動方向只跟著轉一半
+        float NormalTurnFactor = 0.4f;
+        float DriftTurnFactor = 1.8f;  // 甩尾時，車身8往外拋的感覺極大！
+
+        float Grip = 12.0f; // 抓地力：放開方向鍵後，真實移動方向拉回車頭方向的速度
+        float BounceFactor = 0.6f; // 🌟 新增：反彈係數 (0.0 = 不反彈，1.0 = 完美彈性碰撞)
+
+        std::vector<std::shared_ptr<Util::Image>> Sprites;
+        std::shared_ptr<Util::Image> CurrentSprite = nullptr;
+        bool ShouldFlipSprite = false;
+
+    private:
+        const std::vector<std::pair<float, int>> marioKartSpritesLUT = {
+            {   0.0f,  1 }, // 1.PNG: 正前方 (0°)
+            {  15.0f,  2 }, // 2.PNG
+            {  30.0f,  3 }, // 3.PNG
+            {  45.0f,  4 }, // 4.PNG
+            {  60.0f,  5 }, // 5.PNG
+            {  75.0f,  6 }, // 6.PNG
+            {  90.0f,  7 }, // 7.PNG: 正右側 (90°)
+            { 105.0f,  8 }, // 8.PNG
+            { 120.0f,  9 }, // 9.PNG
+            { 135.0f, 10 }, // 10.PNG
+            { 150.0f, 11 }, // 11.PNG
+            { 180.0f, 12 }  // 12.PNG: 正後方 (180°)
+        };
+
+    private:
+        glm::vec2 RotateVector(glm::vec2 v, float angleRad)
+        {
+            float c = std::cos(angleRad);
+            float s = std::sin(angleRad);
+            return { v.x * c - v.y * s, v.x * s + v.y * c };
+        }
+        float GetAngleDifference(float target, float current)
+        {
+            float diff = std::fmod(target - current, 2.0f * M_PI);
+            if (diff > M_PI) diff -= 2.0f * M_PI;
+            if (diff < -M_PI) diff += 2.0f * M_PI;
+            return diff;
+        }
+
+    public:
+        void Init()
+        {
+            for (int i = 1; i <= 12; ++i)
+            {
+                Sprites.push_back(std::make_shared<Util::Image>(
+                    RESOURCE_DIR "/sprites/karts/mario_kart/lod_0/" + std::to_string(i) + ".PNG"));
+            }
+            CurrentSprite = Sprites[0]; // 預設顯示第一張
+        }
+        void Update(float dt, const Game::GameCore::CollisionMap& colMap)
+        {
+            float currentSpeed = glm::length(Velocity);
+            float currentMaxSpeed = MaxSpeed;
+            float currentDecel = Deceleration;
+
+            // ==========================================
+            // 🌟 輔助函式：判斷座標是否為牆壁或草地
+            // ==========================================
+            auto CheckTerrain = [&](float testX, float testY, bool& outIsWall, bool& outIsGrass) {
+                outIsWall = false;
+                outIsGrass = false;
+                int mapX = static_cast<int>(testX / 1.6f);
+                int mapY = static_cast<int>(testY / 1.6f);
+                uint8_t r = 0, g = 0, b = 0;
+
+                if (colMap.GetPixelColor(mapX, mapY, r, g, b)) {
+                    if (r == 0 && g == 0 && b == 0) outIsGrass = true;
+                    else if (r == 104 && g == 104 && b == 248) outIsWall = true;
+                }
+                else {
+                    outIsWall = true; // 掉出地圖外視同撞牆
+                }
+                };
+
+            // 檢查玩家「當前腳下」是否在草地
+            bool isWall = false, isGrass = false;
+            CheckTerrain(Position.x, Position.y, isWall, isGrass);
+            if (isGrass) {
+                currentMaxSpeed = MaxSpeed * 0.4f;
+                currentDecel = Deceleration * 4.0f;
+            }
+
+            // ... (保留你原本處理轉向、油門、抓地力 Velocity 計算的程式碼) ...
+            // [從 bool isDrifting = ... 一直到 Velocity = glm::mix(...);]
+
+            bool isDrifting = Util::Input::IsKeyPressed(Util::Keycode::SPACE);
+            float turnFactor = isDrifting ? DriftTurnFactor : NormalTurnFactor;
+
+            if (currentSpeed > 10.0f)
+            {
+                float turnAngle = 0.0f;
+                if (Util::Input::IsKeyPressed(Util::Keycode::A) || Util::Input::IsKeyPressed(Util::Keycode::LEFT)) turnAngle -= TurnRate * dt;
+                if (Util::Input::IsKeyPressed(Util::Keycode::D) || Util::Input::IsKeyPressed(Util::Keycode::RIGHT)) turnAngle += TurnRate * dt;
+
+                if (turnAngle != 0.0f) {
+                    ExpectedDir = RotateVector(ExpectedDir, turnAngle);
+                    ExpectedDir = glm::normalize(ExpectedDir);
+                    Velocity = RotateVector(Velocity, turnAngle * turnFactor);
+                }
+            }
+
+            if (Util::Input::IsKeyPressed(Util::Keycode::W) || Util::Input::IsKeyPressed(Util::Keycode::UP))
+            {
+                float currentAccel = 0.0f;
+                for (const auto& tier : AccelerationCurve) {
+                    if (currentSpeed <= tier.speedLimit) { currentAccel = tier.accelRate; break; }
+                }
+                Velocity += ExpectedDir * currentAccel * dt;
+            }
+            else if (Util::Input::IsKeyPressed(Util::Keycode::S) || Util::Input::IsKeyPressed(Util::Keycode::DOWN))
+            {
+                if (currentSpeed > 0.1f) Velocity -= glm::normalize(Velocity) * BrakePower * dt;
+            }
+
+            if (currentSpeed > 0.1f && !(Util::Input::IsKeyPressed(Util::Keycode::W) || Util::Input::IsKeyPressed(Util::Keycode::UP)))
+            {
+                float dragDrop = Deceleration * dt;
+                if (dragDrop > currentSpeed) dragDrop = currentSpeed;
+                Velocity -= glm::normalize(Velocity) * dragDrop;
+            }
+
+            if (glm::length(Velocity) > currentMaxSpeed)
+            {
+                Velocity = glm::mix(Velocity, glm::normalize(Velocity) * currentMaxSpeed, 5.0f * dt);
+            }
+
+            // 循跡抓地力
+            currentSpeed = glm::length(Velocity);
+            if (currentSpeed > 10.0f)
+            {
+                float currentGrip = isDrifting ? Grip * 0.1f : Grip;
+                glm::vec2 idealVelocity = ExpectedDir * currentSpeed;
+                Velocity = glm::mix(Velocity, idealVelocity, currentGrip * dt);
+            }
+
+            // ==========================================
+            // 🌟 核心魔法：分離軸移動與反彈 (Separating Axis)
+            // ==========================================
+
+            // 1. 先嘗試在 X 軸上移動
+            float nextX = Position.x + Velocity.x * dt;
+            CheckTerrain(nextX, Position.y, isWall, isGrass);
+            if (isWall)
+            {
+                std::cout << "Hit wall!" << std::endl;
+                // 撞牆了！X 軸不准前進，且 X 軸速度反轉並衰減
+                Velocity.x = -Velocity.x * BounceFactor;
+
+                // 可選：撞牆時讓車頭也稍微偏轉，產生失控感
+                ExpectedDir = RotateVector(ExpectedDir, (Velocity.x > 0 ? 0.2f : -0.2f));
+            }
+            else
+            {
+                // 沒撞牆，正式更新 X 座標
+                Position.x = nextX;
+            }
+
+            // 2. 再嘗試在 Y 軸上移動
+            float nextY = Position.y + Velocity.y * dt;
+            CheckTerrain(Position.x, nextY, isWall, isGrass);
+            if (isWall)
+            {
+                std::cout << "Hit wall!" << std::endl;
+
+                // 撞牆了！Y 軸不准前進，且 Y 軸速度反轉並衰減
+                Velocity.y = -Velocity.y * BounceFactor;
+
+                ExpectedDir = RotateVector(ExpectedDir, (Velocity.y > 0 ? 0.2f : -0.2f));
+            }
+            else
+            {
+                // 沒撞牆，正式更新 Y 座標
+                Position.y = nextY;
+            }
+
+            // ==========================================
+            // 更新動畫
+            // ==========================================
+            UpdateSprite();
+        }
+
+    private:
+        void UpdateSprite()
+        {
+            float currentSpeed = glm::length(Velocity);
+            if (currentSpeed < 5.0f)
+            {
+                CurrentSprite = Sprites[0];
+                ShouldFlipSprite = false;
+                return;
+            }
+
+            // 1. 計算「車頭向量 (ExpectedDir)」和「攝影機前進向量 (Velocity)」之間的夾角
+            // 因為鏡頭是跟隨 Velocity 的。
+            float expectedAngle = std::atan2(ExpectedDir.x, -ExpectedDir.y);
+            float actualAngle = std::atan2(Velocity.x, -Velocity.y);
+
+            // 2. 計算兩者夾角 (Delta Angle)
+            float deltaAngle = GetAngleDifference(expectedAngle, actualAngle);
+
+            // 3. 轉換為角度 (Degree) 
+            float deltaDeg = deltaAngle * 180.0f / M_PI;
+
+            // 4. 🌟 核心： Mario Kart 圖形翻轉邏輯 🌟
+            // 我們假設 1-12.PNG 提供了從 0° (正面) 到 180° (背面) 的順時鐘視角。
+
+            // 將所有角度（正和負）對映到 0 到 180 度的範圍內，並決定是否需要翻轉。
+            float lookupAngle = 0.0f;
+            if (deltaDeg < 0)
+            {
+                // 負角度（例如 -45°，車頭偏向左側視角）：
+                // 對映到對應的正角度進行查找（例如 45°），並標記需要水平翻轉。
+                lookupAngle = std::abs(deltaDeg);
+                ShouldFlipSprite = true;
+            }
+            else
+            {
+                // 正角度（例如 45°，車頭偏向右側視角）：
+                // 直接使用正角度查找，不需要翻轉。
+                lookupAngle = deltaDeg;
+                ShouldFlipSprite = false;
+            }
+
+            // 防呆：確保 lookupAngle 不會超過查找表的範圍 (180°)
+            lookupAngle = std::clamp(lookupAngle, 0.0f, 180.0f);
+
+            // 5. 🌟 核心：二分查找不均勻角度 LUT (std::lower_bound) 🌟
+            // std::lower_bound 會尋找「不小於」 lookupAngle 的第一個元素。
+            // 意味著它會自動找到最接近的「向上」門檻。
+            auto it = std::lower_bound(marioKartSpritesLUT.begin(), marioKartSpritesLUT.end(), lookupAngle,
+                [](const std::pair<float, int>& a, float b) {
+                    return a.first < b; // 比較 pair 的角度和目標角度
+                });
+
+            int spriteIndex = 1;
+            if (it == marioKartSpritesLUT.end()) {
+                // 如果 lookupAngle 比表中所有角度都大 (雖然有防呆，還是加上)，選擇最後一張圖。
+                spriteIndex = marioKartSpritesLUT.back().second;
+            }
+            else {
+                // 否則，使用找到的圖片索引。
+                spriteIndex = it->second;
+            }
+
+            // 6. 組合最終的圖片路徑
+            CurrentSprite = Sprites[spriteIndex - 1];
+        }
+
+    };
+}
+
+
+--- END FILE: Game_\Gameplay\PlayerKart.h ---
+
+
+--- START FILE: Game_\Renderers\BackgroundRenderer.cpp ---
+#include "BackgroundRenderer.h"
+
+#include "Core/TextureUtils.hpp"
+#include "Util/Logger.hpp"
+
+namespace Game::Renderer
+{
+	BackgroundRenderer::BackgroundRenderer(const std::string& imagePath, float scrollSpeed)
+		: imagePath_(imagePath), scrollSpeedMultiplier_(scrollSpeed)
+	{
+
+	}
+
+	bool BackgroundRenderer::Init()
+	{
+        // 加載 Shader
+        program_ = std::make_unique<Core::Program>(
+            RESOURCE_DIR "/shaders/Background.vert",
+            RESOURCE_DIR "/shaders/Background.frag");
+        program_->Bind();
+
+        GLint texLoc = glGetUniformLocation(program_->GetId(), "u_Surface");
+        glUniform1i(texLoc, 0);
+
+        // 建立全螢幕 2D 矩形
+        vertexArray_ = std::make_unique<Core::VertexArray>();
+        vertexArray_->AddVertexBuffer(std::make_unique<Core::VertexBuffer>(
+            std::vector<float>{ -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, -1.0f, 1.0f, 1.0f }, 2));
+        vertexArray_->AddVertexBuffer(std::make_unique<Core::VertexBuffer>(
+            std::vector<float>{ 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f }, 2));
+        vertexArray_->SetIndexBuffer(std::make_unique<Core::IndexBuffer>(
+            std::vector<unsigned int>{ 0, 1, 2, 0, 2, 3 }));
+
+        // 加載 Texture
+        SDL_Surface* surface = IMG_Load(imagePath_.c_str());
+        if (!surface)
+        {
+            LOG_ERROR("Failed to load Prop texture: {}", IMG_GetError());
+            return false;
+        }
+        textureSize_ = glm::vec2((float)surface->w, (float)surface->h);
+        texture_ = std::make_unique<Core::Texture>(
+            Core::SdlFormatToGlFormat(surface->format->format),
+            surface->w, surface->h, surface->pixels);
+        SDL_FreeSurface(surface);
+
+        return true;
+	}
+    void BackgroundRenderer::Draw(float cameraYaw)
+    {
+        // 設定使用的 Shader 和 Texture
+        program_->Bind();
+        glActiveTexture(GL_TEXTURE0);
+        texture_->Bind(0);
+
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+        // 計算參數
+        float parallaxYaw = cameraYaw * scrollSpeedMultiplier_;
+        float uvOffset = parallaxYaw / (2.0f * (float)M_PI);
+
+        // 傳遞參數給 Shader
+        GLint offsetLoc = glGetUniformLocation(program_->GetId(), "u_YawOffset");
+        glUniform1f(offsetLoc, uvOffset);
+        GLint resLoc = glGetUniformLocation(program_->GetId(), "u_Resolution");
+        glUniform2f(resLoc, 
+            (float)Game::GameCore::RETRO_LAYOUT.width , 
+            (float)Game::GameCore::RETRO_LAYOUT.sky);
+        GLint texSizeLoc = glGetUniformLocation(program_->GetId(), "u_TexSize");
+        glUniform2f(texSizeLoc, textureSize_.x, textureSize_.y);
+        
+        // 設定渲染狀態
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glDisable(GL_DEPTH_TEST);
+        vertexArray_->Bind();
+        vertexArray_->DrawTriangles();
+        glEnable(GL_DEPTH_TEST);
+        glDisable(GL_BLEND);
+    }
+}
+
+
+--- END FILE: Game_\Renderers\BackgroundRenderer.cpp ---
+
+
+--- START FILE: Game_\Renderers\BackgroundRenderer.h ---
+#pragma once
+
+#include "pch.hpp"
+
+#include "Core/Program.hpp"
+#include "Core/VertexArray.hpp"
+#include "Core/Texture.hpp"
+
+#include "GameCore/RetroLayout.h"
+#include "Gameplay/GameObject.h"
+
+namespace Game::Renderer
+{
+	class BackgroundRenderer
+	{
+	private:
+		std::unique_ptr<Core::Program> program_;
+		std::unique_ptr<Core::VertexArray> vertexArray_;
+		std::unique_ptr<Core::Texture> texture_;
+
+		std::string imagePath_;
+		float scrollSpeedMultiplier_ = 1.0f;
+
+		glm::vec2 textureSize_ = { 1.0f, 1.0f };
+
+	public:
+		BackgroundRenderer(const std::string& imagePath, float scrollSpeed);
+		BackgroundRenderer(const BackgroundRenderer&) = delete;
+		BackgroundRenderer& operator=(const BackgroundRenderer&) = delete;
+		~BackgroundRenderer() = default;
+
+	public:
+		bool Init();
+		void Draw(float cameraYaw);
+
+	};
+}
+
+
+--- END FILE: Game_\Renderers\BackgroundRenderer.h ---
+
+
+--- START FILE: Game_\Renderers\BakedSurfaceRenderer.cpp ---
+#include "BakedSurfaceRenderer.h"
+
+#include "Core/TextureUtils.hpp"
+#include "Util/Logger.hpp"
+
+namespace Game::Renderer
+{
+	void BakedSurfaceRenderer::UpdateGLTexture()
+	{
+		trackTexture_.reset(new Core::Texture(
+			Core::SdlFormatToGlFormat(workingTrackSurface_->format->format),
+			workingTrackSurface_->w, workingTrackSurface_->h, workingTrackSurface_->pixels));
+	}
+
+	BakedSurfaceRenderer::~BakedSurfaceRenderer()
+	{
+		if (cleanTrackSurface_) SDL_FreeSurface(cleanTrackSurface_);
+		if (workingTrackSurface_) SDL_FreeSurface(workingTrackSurface_);
+	}
+
+	bool BakedSurfaceRenderer::Init(
+		const std::string& trackTexturePath,
+		const std::string& outOfBoundsTexturePath)
+	{
+		// Init Program
+		{
+			program_ = std::make_unique<Core::Program>(
+				RESOURCE_DIR "/shaders/Mode7.vert",
+				RESOURCE_DIR "/shaders/Mode7.frag");
+			program_->Bind();
+			GLint texLoc = glGetUniformLocation(program_->GetId(), "u_Surface");
+			glUniform1i(texLoc, 0);
+			GLint grassLoc = glGetUniformLocation(program_->GetId(), "u_OutOfBoundsTile");
+			glUniform1i(grassLoc, 1);
+		}
+		// Init VertexArray
+		{
+			vertexArray_ = std::make_unique<Core::VertexArray>();
+
+			// 2D 畫布 Vertex (-1.0 ~ 1.0)
+			vertexArray_->AddVertexBuffer(std::make_unique<Core::VertexBuffer>(
+				std::vector<float>{
+				-1.0f, +1.0f,
+					-1.0f, -1.0f,
+					+1.0f, -1.0f,
+					+1.0f, +1.0f }, 2));
+
+			// 2D 畫布 UV (0.0 ~ 1.0)
+			vertexArray_->AddVertexBuffer(std::make_unique<Core::VertexBuffer>(
+				std::vector<float>{
+				0.0f, 1.0f,
+					0.0f, 0.0f,
+					1.0f, 0.0f,
+					1.0f, 1.0f }, 2));
+
+			vertexArray_->SetIndexBuffer(std::make_unique<Core::IndexBuffer>(
+				std::vector<unsigned int>{ 0, 1, 2, 0, 2, 3 }));
+		}
+
+		// Read Track Texture
+		{
+			cleanTrackSurface_ = IMG_Load(trackTexturePath.c_str());
+			trackSize_ = { cleanTrackSurface_->w, cleanTrackSurface_->h };
+			if (!cleanTrackSurface_)
+			{
+				LOG_ERROR("Failed to load Mode 7 texture: {}", IMG_GetError());
+				return false;
+			}
+			workingTrackSurface_ = SDL_ConvertSurface(
+				cleanTrackSurface_, cleanTrackSurface_->format, 0);
+		}
+		// Read OutOfBounds Texture
+		{
+			SDL_Surface* outOfBoundsSurface = IMG_Load(outOfBoundsTexturePath.c_str());
+			if (!outOfBoundsSurface) 
+			{
+				LOG_ERROR("Failed to load grass tile: {}", IMG_GetError());
+				return false;
+			}
+			outOfBoundsTexture_ = std::make_unique<Core::Texture>(
+				Core::SdlFormatToGlFormat(outOfBoundsSurface->format->format),
+				outOfBoundsSurface->w, outOfBoundsSurface->h, outOfBoundsSurface->pixels);
+			SDL_FreeSurface(outOfBoundsSurface);
+		}
+
+		isTrackTextureDirty_ = true;
+
+		return true;
+	}
+	void BakedSurfaceRenderer::Draw(
+		glm::vec2 cameraPos, float cameraYaw, float cameraPitch)
+	{
+		if (isTrackTextureDirty_)
+		{
+			UpdateGLTexture();
+			isTrackTextureDirty_ = false;
+		}
+
+		program_->Bind();
+
+		GLint posLoc = glGetUniformLocation(program_->GetId(), "u_CameraPos");
+		glUniform2f(posLoc, cameraPos.x, cameraPos.y);
+		GLint heightLoc = glGetUniformLocation(program_->GetId(), "u_CameraHeight");
+		glUniform1f(heightLoc, 120.0f);
+		GLint yawLoc = glGetUniformLocation(program_->GetId(), "u_CameraYaw");
+		glUniform1f(yawLoc, cameraYaw);
+		GLint pitchLoc = glGetUniformLocation(program_->GetId(), "u_CameraPitch");
+		glUniform1f(pitchLoc, cameraPitch);
+		GLint sizeLoc = glGetUniformLocation(program_->GetId(), "u_TrackSize");
+		glUniform2f(sizeLoc, trackSize_.x, trackSize_.y);
+
+
+		glActiveTexture(GL_TEXTURE0);
+		trackTexture_->Bind(0);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+		glActiveTexture(GL_TEXTURE1);
+		outOfBoundsTexture_->Bind(1);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+		glDisable(GL_DEPTH_TEST);
+		vertexArray_->Bind();
+		vertexArray_->DrawTriangles();
+		glEnable(GL_DEPTH_TEST);
+	}
+
+	void BakedSurfaceRenderer::BakeObject(
+		SDL_Surface* surface, std::vector<glm::vec2> positions)
+	{
+		if (!surface) return;
+
+		for (const auto& pos : positions) 
+		{
+			SDL_Rect destRect;
+			destRect.x = static_cast<int>(pos.x);
+			destRect.y = static_cast<int>(pos.y);
+			destRect.w = surface->w;
+			destRect.h = surface->h;
+
+			SDL_BlitSurface(surface, nullptr, workingTrackSurface_, &destRect);
+		}
+
+		isTrackTextureDirty_ = true;
+	}
+	void BakedSurfaceRenderer::BakeRotatedObjects(
+		SDL_Surface* surface, const std::vector<RotatedBakeItem>& items)
+	{
+		if (!surface) return;
+
+		SDL_Surface* srcRGBA = SDL_ConvertSurfaceFormat(surface, SDL_PIXELFORMAT_RGBA32, 0);
+		if (!srcRGBA) return;
+
+		int srcW = srcRGBA->w;
+		int srcH = srcRGBA->h;
+
+		for (const auto& item : items)
+		{
+			// 1. 確保方向在 0~3 之間安全循環
+			int dir = item.direction % 4;
+			if (dir < 0) dir += 4;
+
+			// 2. 如果是轉 90 度或 270 度，目標畫布的寬高必須互換！
+			int destW = (dir == 1 || dir == 3) ? srcH : srcW;
+			int destH = (dir == 1 || dir == 3) ? srcW : srcH;
+
+			SDL_Surface* rotatedSurface = SDL_CreateRGBSurfaceWithFormat(
+				0, destW, destH, 32, SDL_PIXELFORMAT_RGBA32);
+
+			// 填滿透明底
+			SDL_FillRect(rotatedSurface, nullptr, SDL_MapRGBA(rotatedSurface->format, 0, 0, 0, 0));
+
+			// 3. 🌟 超高速純整數像素映射 (無三角函數)
+			for (int dy = 0; dy < destH; ++dy)
+			{
+				Uint32* destRow = (Uint32*)((Uint8*)rotatedSurface->pixels + dy * rotatedSurface->pitch);
+
+				for (int dx = 0; dx < destW; ++dx)
+				{
+					int srcX = 0, srcY = 0;
+
+					// 根據方向，直接反推原始圖片的 X, Y 座標
+					switch (dir)
+					{
+					case 0: // 正常
+						srcX = dx;
+						srcY = dy;
+						break;
+					case 1: // 逆時鐘 90 度
+						srcX = srcW - 1 - dy;
+						srcY = dx;
+						break;
+					case 2: // 180 度 (上下左右顛倒)
+						srcX = srcW - 1 - dx;
+						srcY = srcH - 1 - dy;
+						break;
+					case 3: // 順時鐘 90 度
+						srcX = dy;
+						srcY = srcH - 1 - dx;
+						break;
+					}
+
+					// 直接拷貝顏色 (保證 100% 不破圖)
+					Uint32* srcRow = (Uint32*)((Uint8*)srcRGBA->pixels + srcY * srcRGBA->pitch);
+					destRow[dx] = srcRow[srcX];
+				}
+			}
+
+			// 4. 計算中心點並蓋印到賽道上
+			SDL_Rect destRect;
+			destRect.x = static_cast<int>(item.position.x);
+			destRect.y = static_cast<int>(item.position.y);
+			destRect.w = destW;
+			destRect.h = destH;
+
+			SDL_BlitSurface(rotatedSurface, nullptr, workingTrackSurface_, &destRect);
+			SDL_FreeSurface(rotatedSurface);
+		}
+
+		SDL_FreeSurface(srcRGBA);
+		isTrackTextureDirty_ = true;
+	}
+	void BakedSurfaceRenderer::RestoreBakedObject(
+		glm::vec2 size, std::vector<glm::vec2> positions)
+	{
+		for (const auto& pos : positions)
+		{
+			SDL_Rect patchRect;
+			patchRect.x = static_cast<int>(pos.x);
+			patchRect.y = static_cast<int>(pos.y);
+			patchRect.w = size.x;
+			patchRect.h = size.y;
+
+			SDL_BlitSurface(cleanTrackSurface_, &patchRect, workingTrackSurface_, &patchRect);
+		}
+
+		isTrackTextureDirty_ = true;
+	}
+}
+
+
+--- END FILE: Game_\Renderers\BakedSurfaceRenderer.cpp ---
+
+
+--- START FILE: Game_\Renderers\BakedSurfaceRenderer.h ---
+#pragma once
+
+#include "pch.hpp"
+
+#include "Core/Program.hpp"
+#include "Core/VertexArray.hpp"
+#include "Core/Texture.hpp"
+
+namespace Game::Renderer
+{
+	struct RotatedBakeItem
+	{
+		glm::vec2 position;
+		int direction;
+	};
+
+	class BakedSurfaceRenderer
+	{
+	private:
+		std::unique_ptr<Core::Program> program_;
+		std::unique_ptr<Core::VertexArray> vertexArray_;
+
+		std::unique_ptr<Core::Texture> trackTexture_;
+		std::unique_ptr<Core::Texture> outOfBoundsTexture_;
+		glm::vec2 trackSize_{};
+		bool isTrackTextureDirty_ = true;
+
+		SDL_Surface* cleanTrackSurface_ = nullptr;
+		SDL_Surface* workingTrackSurface_ = nullptr;
+
+		const float TRACK_SCALE = 150.0f;
+		const float UV_START = -4.0f;
+		const float UV_END = 5.0f;
+		const float UV_SPAN = UV_END - UV_START;
+		const float MAP_PIXEL_SIZE = 1024.0f;
+		const float MAP_WORLD_SIZE = 33.333333f;
+		const float PIXEL_TO_WORLD_RATIO = MAP_PIXEL_SIZE / MAP_WORLD_SIZE;
+
+		//glm::vec3 cameraPos_ = { 14.32, 0.5f, 4.22873 };
+
+	private:
+		void UpdateGLTexture();
+
+	public:
+		BakedSurfaceRenderer() = default;
+		BakedSurfaceRenderer(const BakedSurfaceRenderer&) = delete;
+		BakedSurfaceRenderer& operator=(const BakedSurfaceRenderer&) = delete;
+		~BakedSurfaceRenderer();
+
+	public:
+		bool Init(
+			const std::string& trackTexturePath,
+			const std::string& outOfBoundsTexturePath);
+		void Draw(
+			glm::vec2 cameraPos, float cameraYaw, float cameraPitch = 0.04f);
+
+		void BakeObject(
+			SDL_Surface* surface, std::vector<glm::vec2> positions);
+		void BakeRotatedObjects(
+			SDL_Surface* surface, const std::vector<RotatedBakeItem>& items);
+		void RestoreBakedObject(
+			glm::vec2 size, std::vector<glm::vec2> positions);
+
+	};
+}
+
+
+--- END FILE: Game_\Renderers\BakedSurfaceRenderer.h ---
+
+
+--- START FILE: Game_\Renderers\BillboardRenderer.cpp ---
+#include "Renderers/BillboardRenderer.h"
+
+#include "GameCore/ObjectDefinition.h"
+
+#include <cmath>
+#include <algorithm>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+
+namespace
+{
+	// 計算最短旋轉角度 (-PI 到 PI)
+	float GetAngleDifference(float target, float current)
+	{
+		float diff = std::fmod(target - current, 2.0f * M_PI);
+		if (diff > M_PI) diff -= 2.0f * M_PI;
+		if (diff < -M_PI) diff += 2.0f * M_PI;
+		return diff;
+	}
+}
+
+namespace Game::Renderer
+{
+	BillboardRenderer::~BillboardRenderer()
+	{
+		if (quadVAO_ != 0) {
+			glDeleteVertexArrays(1, &quadVAO_);
+			glDeleteBuffers(1, &quadVBO_);
+		}
+	}
+
+	void BillboardRenderer::Init()
+	{
+		// 1. 建立 1x1 單位方形 (原點在左上角)
+		float vertices[] = {
+			0.0f, 1.0f,   0.0f, 1.0f, // 左下
+			1.0f, 0.0f,   1.0f, 0.0f, // 右上
+			0.0f, 0.0f,   0.0f, 0.0f, // 左上
+
+			0.0f, 1.0f,   0.0f, 1.0f, // 左下
+			1.0f, 1.0f,   1.0f, 1.0f, // 右下
+			1.0f, 0.0f,   1.0f, 0.0f  // 右上
+		};
+
+		glGenVertexArrays(1, &quadVAO_);
+		glGenBuffers(1, &quadVBO_);
+		glBindVertexArray(quadVAO_);
+		glBindBuffer(GL_ARRAY_BUFFER, quadVBO_);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+		// Position attribute (0)
+		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+		glEnableVertexAttribArray(0);
+		// UV attribute (1)
+		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
+		glEnableVertexAttribArray(1);
+
+		// 2. 載入 UI Shader (正交投影用)
+		program_ = std::make_unique<Core::Program>(
+			RESOURCE_DIR "/shaders/ui.vert",
+			RESOURCE_DIR "/shaders/ui.frag"
+		);
+	}
+	void BillboardRenderer::Draw(
+		glm::vec2 cameraPos, float cameraYaw, float cameraPitch,
+		const std::vector<BillboardItem>& items)
+	{
+		std::vector<RenderCommand> drawQueue;
+
+		// ==========================================
+		// 1. 批次計算所有物件的 3D 深度與 2D 螢幕座標
+		// ==========================================
+		for (const auto& item : items)
+		{
+			if (!item.definition || item.definition->lods.empty()) continue;
+
+			// 計算相對向量
+			glm::vec2 rel = item.worldPos - cameraPos;
+			glm::vec2 forward = { std::sin(cameraYaw), -std::cos(cameraYaw) };
+			glm::vec2 right = { std::cos(cameraYaw), std::sin(cameraYaw) };
+
+			float depth = glm::dot(rel, forward);
+			float side = glm::dot(rel, right);
+
+			// 剔除：在攝影機背後
+			if (depth <= 0.001f || depth > item.definition->lods.back().maxDistance) continue;
+
+			float horizon = 1.0f + cameraPitch;
+			float cameraHeight = 120.0f;
+			float fov = 0.42f;
+
+			// 計算原始的 screenX, screenY (0.0 ~ 1.0)
+			float screenX = (side / depth) / (2.0f * fov) + 0.5f;
+			float screenY = horizon - (cameraHeight / depth);
+
+			// 剔除：超出畫面太多
+			if (screenX < -0.5f || screenX > 1.5f || screenY < -0.5f || screenY > 1.5f) continue;
+
+			// 轉換為 FBO 像素座標 (Bottom-Up 系統的 Y)
+			const auto& layout = Game::GameCore::RETRO_LAYOUT;
+			float fboX = screenX * 256.0f;
+			float fboY_fromBottom = screenY * layout.track + layout.GetTrackY();
+
+
+			// ==========================================
+			// 2. 自動依照透視選擇圖片 (核心魔法)
+			// ==========================================
+			const std::vector<Game::GameCore::DirectionalSprite>* bestSprites = nullptr;
+			float minHeightDiff = 99999.0f;
+
+			// 遍歷所有載入的圖片，找出「真實高度」跟「理想透視高度」最接近的那張！
+			for (const auto& lod : item.definition->lods)
+			{
+				if (depth <= lod.maxDistance) 
+				{
+					bestSprites = &lod.sprites;
+					break;
+				}
+			}
+			if (!bestSprites) continue;
+
+			std::shared_ptr<Util::Image> targetImage = nullptr;
+			glm::vec2 dirToCamera = cameraPos - item.worldPos;
+			float angleToCamera = std::atan2(-dirToCamera.y, dirToCamera.x);
+			float relativeViewAngle = GetAngleDifference(angleToCamera, item.yaw);
+
+			float minAngleDiff = 9999.0f;
+			for (const auto& sprite : *bestSprites) {
+				float diff = std::abs(GetAngleDifference(relativeViewAngle, sprite.angle));
+				if (diff < minAngleDiff) {
+					minAngleDiff = diff;
+					targetImage = sprite.image;
+				}
+			}
+			if (!targetImage) continue;
+
+			// ==========================================
+			// 3. 1:1 像素完美繪製 (無縮放)
+			// ==========================================
+			float imgW = targetImage->GetSize().x;
+			float imgH = targetImage->GetSize().y;
+
+			float drawX = fboX - (imgW * 0.5f);
+			float drawY = 224.0f - (fboY_fromBottom + imgH);
+
+			GLuint texID = targetImage->GetTextureId();
+			drawQueue.push_back({ drawX, drawY, imgW, imgH, depth, texID });
+		}
+
+		// ==========================================
+		// 4. 畫家演算法 (Painter's Algorithm) - 由遠畫到近
+		// ==========================================
+		std::sort(drawQueue.begin(), drawQueue.end(), [](const RenderCommand& a, const RenderCommand& b) {
+			return a.depth > b.depth;
+			});
+
+		// ==========================================
+		// 5. 執行純 OpenGL 渲染管線
+		// ==========================================
+		if (drawQueue.empty()) return;
+
+		program_->Bind();
+
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_DEPTH_TEST);
+
+		// 設定正交投影矩陣 (左上角為 0,0)
+		glm::mat4 projection = glm::ortho(0.0f, 256.0f, 224.0f, 0.0f, -1.0f, 1.0f);
+		GLint projLoc = glGetUniformLocation(program_->GetId(), "u_Projection");
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+
+		glBindVertexArray(quadVAO_);
+		GLint modelLoc = glGetUniformLocation(program_->GetId(), "u_Model");
+		GLint texLoc = glGetUniformLocation(program_->GetId(), "u_Texture");
+		glUniform1i(texLoc, 0);
+
+		// 依序繪製所有立體物件
+		for (const auto& cmd : drawQueue)
+		{
+			// 設定 Model 矩陣 (位移 + 縮放)
+			glm::mat4 model = glm::mat4(1.0f);
+			model = glm::translate(model, glm::vec3(cmd.x, cmd.y, 0.0f));
+			model = glm::scale(model, glm::vec3(cmd.width, cmd.height, 1.0f));
+			glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+			glActiveTexture(GL_TEXTURE0);
+
+			// 🌟 注意：取得 OpenGL Texture ID 的方式
+			// 假設你的 Util::Image 底層使用的是 Core::Texture，請透過適當的方法取得 GLuint
+			// 如果你的 Util::Image 不支援 GetTexture()->GetId()，請在引擎源碼中加一個 Getter
+			GLuint textureId = cmd.textureId;
+			glBindTexture(GL_TEXTURE_2D, textureId);
+
+			glDrawArrays(GL_TRIANGLES, 0, 6);
+		}
+	}
+}
+
+
+--- END FILE: Game_\Renderers\BillboardRenderer.cpp ---
+
+
+--- START FILE: Game_\Renderers\BillboardRenderer.h ---
+#pragma once
+
+#include "pch.hpp"
+#include <vector>
+#include <memory>
+#include <GL/glew.h>
+#include <glm/glm.hpp>
+
+#include "Core/Program.hpp"
+#include "GameCore/ObjectDefinition.h"
+#include "GameCore/RetroLayout.h"
+#include "Util/Image.hpp"
+
+namespace Game::Renderer
+{
+	struct BillboardItem
+	{
+		glm::vec2 worldPos;
+		float yaw;
+		const Game::GameCore::ObjectDefinition* definition;
+	};
+
+	class BillboardRenderer
+	{
+	private:
+		GLuint quadVAO_ = 0;
+		GLuint quadVBO_ = 0;
+		std::unique_ptr<Core::Program> program_;
+
+		struct RenderCommand 
+		{
+			float x, y, width, height, depth;
+			GLuint textureId;
+		};
+
+	public:
+		BillboardRenderer() = default;
+		BillboardRenderer(const BillboardRenderer&) = delete;
+		BillboardRenderer& operator=(const BillboardRenderer&) = delete;
+		~BillboardRenderer();
+
+	public:
+		void Init();
+		void Draw(
+			glm::vec2 cameraPos,
+			float cameraYaw,
+			float cameraPitch,
+			const std::vector<BillboardItem>& items);
+
+	};
+}
+
+
+--- END FILE: Game_\Renderers\BillboardRenderer.h ---
+
+
+--- START FILE: Game_\Renderers\UIRenderer.cpp ---
+#include "Renderers/UIRenderer.h"
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+
+namespace Game::Renderer
+{
+    UIRenderer::~UIRenderer()
+    {
+        if (quadVAO_ != 0) {
+            glDeleteVertexArrays(1, &quadVAO_);
+            glDeleteBuffers(1, &quadVBO_);
+        }
+    }
+
+    void UIRenderer::Init()
+    {
+        // 1. 建立 1x1 單位方形 (原點在左上角)
+        float vertices[] = {
+            0.0f, 1.0f,   0.0f, 1.0f, // 左下
+            1.0f, 0.0f,   1.0f, 0.0f, // 右上
+            0.0f, 0.0f,   0.0f, 0.0f, // 左上
+
+            0.0f, 1.0f,   0.0f, 1.0f, // 左下
+            1.0f, 1.0f,   1.0f, 1.0f, // 右下
+            1.0f, 0.0f,   1.0f, 0.0f  // 右上
+        };
+
+        glGenVertexArrays(1, &quadVAO_);
+        glGenBuffers(1, &quadVBO_);
+        glBindVertexArray(quadVAO_);
+        glBindBuffer(GL_ARRAY_BUFFER, quadVBO_);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+        glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(0);
+        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
+        glEnableVertexAttribArray(1);
+
+        // 2. 共用與 Billboard 相同的 UI Shader
+        program_ = std::make_unique<Core::Program>(
+            RESOURCE_DIR "/shaders/ui.vert",
+            RESOURCE_DIR "/shaders/ui.frag"
+        );
+    }
+    void UIRenderer::DrawImage(std::shared_ptr<Util::Image> image, float x, float y, bool flipH)
+    {
+        if (!image) return;
+
+        // 將繪製指令塞入本幀的佇列中
+        drawQueue_.push_back({
+            x, y,
+            image->GetSize().x,
+            image->GetSize().y,
+            image->GetTextureId(),
+            flipH
+            });
+    }
+    void UIRenderer::Render()
+    {
+        if (drawQueue_.empty()) return;
+
+        // 開啟混和與關閉深度測試 (UI 永遠在最上層)
+        program_->Bind();
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glDisable(GL_DEPTH_TEST);
+
+        // 設定正交投影 (左上角 0,0 -> 右下角 256,224)
+        glm::mat4 projection = glm::ortho(0.0f, 256.0f, 224.0f, 0.0f, -1.0f, 1.0f);
+        GLint projLoc = glGetUniformLocation(program_->GetId(), "u_Projection");
+        glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+
+        glBindVertexArray(quadVAO_);
+        GLint modelLoc = glGetUniformLocation(program_->GetId(), "u_Model");
+        GLint texLoc = glGetUniformLocation(program_->GetId(), "u_Texture");
+        glUniform1i(texLoc, 0);
+
+        // 依序執行佇列中的所有繪製指令
+        for (const auto& cmd : drawQueue_)
+        {
+            glm::mat4 model = glm::mat4(1.0f);
+            if (cmd.flipH)
+            {
+                model = glm::translate(model, glm::vec3(cmd.x + cmd.width, cmd.y, 0.0f));
+                model = glm::scale(model, glm::vec3(-cmd.width, cmd.height, 1.0f));
+            }
+            else
+            {
+                model = glm::translate(model, glm::vec3(cmd.x, cmd.y, 0.0f));
+                model = glm::scale(model, glm::vec3(cmd.width, cmd.height, 1.0f));
+            }
+            
+            glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, cmd.textureId);
+
+            glDrawArrays(GL_TRIANGLES, 0, 6);
+        }
+
+        // 🌟 立即模式的核心：畫完就清空！
+        drawQueue_.clear();
+    }
+}
+
+
+--- END FILE: Game_\Renderers\UIRenderer.cpp ---
+
+
+--- START FILE: Game_\Renderers\UIRenderer.h ---
+#pragma once
+
+#include "pch.hpp"
+#include <vector>
+#include <memory>
+#include <GL/glew.h>
+#include <glm/glm.hpp>
+
+#include "Core/Program.hpp"
+#include "Util/Image.hpp"
+
+namespace Game::Renderer
+{
+    class UIRenderer
+    {
+    private:
+        GLuint quadVAO_ = 0;
+        GLuint quadVBO_ = 0;
+        std::unique_ptr<Core::Program> program_;
+
+        struct UIDrawCommand
+        {
+            float x, y;
+            float width, height;
+            GLuint textureId;
+            bool flipH;
+        };
+        std::vector<UIDrawCommand> drawQueue_;
+
+    public:
+        UIRenderer() = default;
+        UIRenderer(const UIRenderer&) = delete;
+        UIRenderer& operator=(const UIRenderer&) = delete;
+        ~UIRenderer();
+
+    public:
+        void Init();
+        void DrawImage(std::shared_ptr<Util::Image> image, float x, float y, bool flipH = false);
+        void Render();
+
+    };
+}
+
+
+--- END FILE: Game_\Renderers\UIRenderer.h ---
+
+
+--- START FILE: Game_\Systems\LevelLoader.cpp ---
+#include "LevelLoader.h"
+
+#include <fstream>
+#include <nlohmann/json.hpp>
+#include "Util/Logger.hpp"
+
+
+namespace Game::Systems
+{
+	Game::GameCore::LevelData LevelLoader::LoadLevel(const std::string& levelPath)
+	{
+		Game::GameCore::LevelData data;
+		std::ifstream file(levelPath);
+
+		if (!file.is_open())
+		{
+			LOG_ERROR("Cannot open JSON: {}", levelPath);
+			return data;
+		}
+		nlohmann::json j;
+		file >> j;
+
+		data.name = j["meta"]["name"];
+		data.totalLaps = j["meta"]["total_laps"];
+		data.initialYaw = j["starting_grid"]["initial_yaw"];
+		for (const auto& pos : j["starting_grid"]["positions"])
+		{
+			data.startingGrid.push_back({ pos["id"], {pos["x"], pos["z"]} });
+		}
+		if (j.contains("coin"))
+		{
+			for (const auto& pos : j["coin"]["positions"])
+			{
+				data.coins.push_back({ pos["x"], pos["z"] });
+			}
+		}
+		if (j.contains("ITEM_BOX"))
+		{
+			for (const auto& box : j["ITEM_BOX"]["positions"])
+			{
+				data.itemBoxes.push_back({ { box["x"], box["z"] }, box["direction"]});
+			}
+		}
+		if (j.contains("pipe"))
+		{
+			for (const auto& pos : j["pipe"]["positions"])
+			{
+				data.pipes.push_back({ pos["x"], pos["z"] });
+			}
+		}
+
+		std::string collisionImagePath = std::string(RESOURCE_DIR) + "/sprites/tracks/level_1/collision.png";
+		SDL_Surface* rawSurface = IMG_Load(collisionImagePath.c_str());
+
+		if (rawSurface)
+		{
+			SDL_Surface* rgbaSurface = SDL_ConvertSurfaceFormat(rawSurface, SDL_PIXELFORMAT_RGBA32, 0);
+			if (rgbaSurface)
+			{
+				data.collisionMap.width = rgbaSurface->w;
+				data.collisionMap.height = rgbaSurface->h;
+
+				// 計算總位元組數量 (寬 * 高 * 4 bytes)
+				int bufferSize = rgbaSurface->w * rgbaSurface->h * 4;
+				data.collisionMap.pixels.resize(bufferSize);
+
+				// 將圖片像素一次性拷貝到 vector 中
+				std::memcpy(data.collisionMap.pixels.data(), rgbaSurface->pixels, bufferSize);
+
+				SDL_FreeSurface(rgbaSurface);
+				LOG_INFO("Successfully loaded collision map into RAM.");
+			}
+			SDL_FreeSurface(rawSurface);
+		}
+		else
+		{
+			LOG_ERROR("Failed to load collision map: {}", IMG_GetError());
+		}
+
+		return data;
+	}
+}
+
+
+--- END FILE: Game_\Systems\LevelLoader.cpp ---
+
+
+--- START FILE: Game_\Systems\LevelLoader.h ---
+#pragma once
+
+#include "GameCore/LevelData.h"
+#include <string>
+
+namespace Game::Systems
+{
+    class LevelLoader
+    {
+    public:
+        static Game::GameCore::LevelData LoadLevel(const std::string& levelPath);
+
+    };
+}
+
+
+--- END FILE: Game_\Systems\LevelLoader.h ---
+
+
+--- START FILE: Resources\Levels\Level1.json ---
+{
+    "meta": {
+        "name": "level_1",
+        "total_laps": 5
+    },
+    "starting_grid": {
+        "initial_yaw": 0.0,
+        "positions": [
+            { "id": 1, "x": 920.0, "z": 589.0 },
+            { "id": 2, "x": 952.0, "z": 613.0 },
+            { "id": 3, "x": 920.0, "z": 637.0 },
+            { "id": 4, "x": 952.0, "z": 661.0 },
+            { "id": 5, "x": 920.0, "z": 685.0 },
+            { "id": 6, "x": 952.0, "z": 709.0 },
+            { "id": 7, "x": 920.0, "z": 733.0 },
+            { "id": 8, "x": 952.0, "z": 757.0 }
+        ]
+    },
+    "coin": {
+        "positions": [
+            {"x": 590.0, "z": 239.0},
+            {"x": 574.0, "z": 239.0},
+            {"x": 606.0, "z": 239.0},
+            {"x": 590.0, "z": 223.0},
+            {"x": 590.0, "z": 255.0},
+
+            {"x": 454.0, "z": 167.0},
+            {"x": 438.0, "z": 167.0},
+            {"x": 468.0, "z": 167.0},
+            {"x": 454.0, "z": 151.0},
+            {"x": 454.0, "z": 183.0},
+
+            {"x": 526.0, "z": 599.0},
+            {"x": 510.0, "z": 599.0},
+            {"x": 542.0, "z": 599.0},
+            {"x": 526.0, "z": 583.0},
+            {"x": 526.0, "z": 615.0},
+
+            {"x": 526.0, "z": 199.0},
+            {"x": 510.0, "z": 183.0},
+            {"x": 510.0, "z": 215.0},
+            {"x": 542.0, "z": 215.0},
+            {"x": 542.0, "z": 183.0},
+
+            {"x": 382.0, "z": 127.0},
+            {"x": 366.0, "z": 111.0},
+            {"x": 366.0, "z": 143.0},
+            {"x": 398.0, "z": 143.0},
+            {"x": 398.0, "z": 111.0},
+
+            {"x": 54.00, "z": 455.0},
+            {"x": 70.00, "z": 455.0},
+            {"x": 86.00, "z": 455.0},
+
+            {"x": 78.00, "z": 519.0},
+            {"x": 94.00, "z": 519.0},
+            {"x": 110.0, "z": 519.0},
+
+            {"x": 782.0, "z": 943.0},
+            {"x": 798.0, "z": 943.0},
+            {"x": 814.0, "z": 943.0},
+            {"x": 830.0, "z": 943.0}
+        ]
+    },
+    "ITEM_BOX": {
+        "positions": [
+            {"x": 48.0, "z": 256.0, "direction": 2},
+            {"x": 64.0, "z": 272.0, "direction": 2},
+            {"x": 80.0, "z": 280.0, "direction": 2},
+            {"x": 48.0, "z": 288.0, "direction": 2},
+            {"x": 96.0, "z": 304.0, "direction": 2},
+            {"x": 64.0, "z": 312.0, "direction": 2},
+            {"x": 48.0, "z": 336.0, "direction": 2},
+            {"x": 96.0, "z": 336.0, "direction": 2},
+            {"x": 72.0, "z": 352.0, "direction": 2},
+            {"x": 48.0, "z": 368.0, "direction": 2},
+            {"x": 96.0, "z": 368.0, "direction": 2},
+            {"x": 64.0, "z": 392.0, "direction": 2}
+        ]
+    },
+    "pipe": {
+        "positions": [
+            {"x": 264.00, "z": 88.0},
+            {"x": 248.0, "z": 120.0},
+            {"x": 184.00, "z": 48.0},
+            {"x": 160.0, "z": 128.0},
+            {"x": 144.0, "z": 672.0},
+            {"x": 240.0, "z": 744.0},
+            {"x": 256.0, "z": 736.0},
+            {"x": 504.0, "z": 632.0}
+        ]
+    }
+}
+
+
+--- END FILE: Resources\Levels\Level1.json ---
+
+
+--- START FILE: Resources\shaders\Background.frag ---
+#version 410 core
+
+layout(location = 0) in vec2 uv;
+layout(location = 0) out vec4 fragColor;
+
+uniform sampler2D u_Surface;
+
+void main()
+{
+    fragColor = texture(u_Surface, uv);
+}
+
+
+--- END FILE: Resources\shaders\Background.frag ---
+
+
+--- START FILE: Resources\shaders\Background.vert ---
+#version 410 core
+
+layout(location = 0) in vec2 vertPosition;
+layout(location = 1) in vec2 vertUv;
+
+layout(location = 0) out vec2 uv;
+
+uniform float u_YawOffset;   
+uniform vec2 u_Resolution; // Viewport 尺寸 (例如 256x21)
+uniform vec2 u_TexSize;    // 圖片真實尺寸 (例如 256x256)
+
+void main() {
+    gl_Position = vec4(vertPosition, 0.0, 1.0); 
+
+    // 🌟 1:1 像素縮放比例
+    // 例如 height: 21 / 256 = 0.082
+    vec2 scale = u_Resolution / u_TexSize;
+
+    // X 軸：加上旋轉偏移，然後乘上比例 (維持水平不變形)
+    float finalUvX = (vertUv.x + u_YawOffset) * scale.x;
+
+    // Y 軸：核心魔法「對齊底部 (地平線)」
+    // 讓 Viewport 的底部 (vertUv.y = 1.0) 剛好對應到圖片的最底部 (1.0)
+    // Viewport 的頂部則對應到 1.0 - scale.y (例如 1.0 - 0.082 = 0.918)
+    float finalUvY = 1.0 - scale.y + (vertUv.y * scale.y);
+
+    uv = vec2(finalUvX, finalUvY);
+}
+
+--- END FILE: Resources\shaders\Background.vert ---
+
+
+--- START FILE: Resources\shaders\Base.frag ---
+#version 410 core
+
+layout(location = 0) in vec2 uv;
+
+layout(location = 0) out vec4 fragColor;
+
+uniform sampler2D surface;
+
+void main() {
+    vec4 texColor = texture(surface, uv);
+
+    if (texColor.a < 0.01)
+        discard;
+
+    fragColor = texColor;
+}
+
+
+--- END FILE: Resources\shaders\Base.frag ---
+
+
+--- START FILE: Resources\shaders\Base.vert ---
+#version 410 core
+
+layout(location = 0) in vec2 vertPosition;
+layout(location = 1) in vec2 vertUv;
+
+layout(location = 0) out vec2 uv;
+
+layout(std140) uniform Matrices {
+    mat4 model;
+    mat4 viewProjection;
+};
+
+void main() {
+    // Reference from
+    // https://github.com/NOOBDY/Indigo/blob/f31c7ef82c610d8e91214892a7a1e3f860ba4aaa/assets/shaders/base_pass.vert#L21-L22
+    gl_Position = viewProjection * model * vec4(vertPosition, 0, 1);
+
+    uv = vertUv;
+}
+
+
+--- END FILE: Resources\shaders\Base.vert ---
+
+
+--- START FILE: Resources\shaders\Mode7.frag ---
+#version 410 core
+
+layout(location = 0) in vec2 screenUV; 
+layout(location = 0) out vec4 fragColor;
+
+uniform sampler2D u_Surface;
+uniform sampler2D u_OutOfBoundsTile;
+
+// 🌟 變數統一改成純像素與直覺命名
+uniform vec2 u_CameraPos;    // 攝影機 XZ 座標 (純像素)
+uniform float u_CameraHeight;// 攝影機高度 (純像素，影響看多遠)
+uniform float u_CameraYaw;   // 攝影機朝向 (弧度)
+uniform float u_CameraPitch;
+uniform vec2 u_TrackSize;    // 地圖真實尺寸 (例如 1024x1024)
+
+void main() 
+{
+    float horizon = 1.0 + u_CameraPitch;
+    float y = horizon - screenUV.y;
+    
+    if (y <= 0.001) {
+        fragColor = texture(u_OutOfBoundsTile, fract(screenUV * 16.0));
+        return;
+    }
+
+    // 1. 計算深度 (因為 u_CameraHeight 是像素，算出來的 z 就是真實的像素距離)
+    float z = u_CameraHeight / y;
+
+    // 2. 螢幕水平映射 (fov 控制視野，1.0 剛好，越小畫面越放大)
+    float fov = 0.42; 
+    float x = (screenUV.x - 0.5) * 2.0 * fov; 
+
+    // ====================================================
+    // 3. 🌟 確保 Shader 的前後左右與 C++ 完全一致 🌟
+    // ====================================================
+    // C++ 的 forwardDir 是 { sin(yaw), 0, -cos(yaw) }
+    vec2 forward = vec2(sin(u_CameraYaw), -cos(u_CameraYaw));
+    
+    // C++ 的 rightDir 是 { cos(yaw), 0, sin(yaw) }
+    vec2 right = vec2(cos(u_CameraYaw), sin(u_CameraYaw));
+    
+    // 構造這條射線的真正方向 (往前 1.0，往右 x)
+    vec2 rayDir = forward * 1.0 + right * x;
+
+    // 4. 算出打在地圖上的真實像素座標 (攝影機位置 + 射線方向 * 距離)
+    vec2 worldPos = u_CameraPos + rayDir * z;
+
+    // ====================================================
+    // 5. 像素轉 UV 與繪製
+    // ====================================================
+    float mapScale = 1.6; // 如果你想讓整個賽道面積變大 2 倍，就調大這個數字
+    vec2 worldUV = (worldPos / u_TrackSize) / mapScale;
+
+    float grassTiling = 128.0;
+    if (worldUV.x < 0.0 || worldUV.x > 1.0 || worldUV.y < 0.0 || worldUV.y > 1.0) {
+        fragColor = texture(u_OutOfBoundsTile, fract(worldUV * grassTiling));
+    } 
+    else {
+        vec4 texColor = texture(u_Surface, worldUV);
+        if (texColor.a < 0.01) {
+            fragColor = texture(u_OutOfBoundsTile, fract(worldUV * grassTiling));
+        } else {
+            fragColor = texColor;
+        }
+    }
+}
+
+
+--- END FILE: Resources\shaders\Mode7.frag ---
+
+
+--- START FILE: Resources\shaders\Mode7.vert ---
+#version 410 core
+
+layout(location = 0) in vec2 vertPosition;
+layout(location = 1) in vec2 vertUv;
+
+layout(location = 0) out vec2 screenUV;
+
+void main() 
+{
+    // 直接將頂點貼死在畫面上 (Clip Space: -1.0 ~ 1.0)
+    gl_Position = vec4(vertPosition, 0.0, 1.0);
+    screenUV = vertUv;
+}
+
+
+--- END FILE: Resources\shaders\Mode7.vert ---
+
+
+--- START FILE: Resources\shaders\Triangle.frag ---
+#version 410 core
+
+layout(location = 0) in vec3 vertexColor;
+
+layout(location = 0) out vec4 fragColor;
+
+void main() {
+    fragColor = vec4(vertexColor, 1.0);
+    // fragColor.a *= 0.5;
+}
+
+
+--- END FILE: Resources\shaders\Triangle.frag ---
+
+
+--- START FILE: Resources\shaders\Triangle.vert ---
+#version 410 core
+
+layout(location = 0) in vec2 vertexPos;
+layout(location = 1) in vec3 color;
+
+layout(location = 0) out vec3 vertexColor;
+
+/**
+ * C++ and GLSL maps `mat2` differently because weird padding issues
+ * https://www.khronos.org/opengl/wiki/Layout_Qualifier_(GLSL)#Interface_components
+ *
+ * Sample code: `mat2 m = {a, b, c, d};`
+ *
+ * C++:
+ * | a | b | c | d |
+ *
+ * GLSL:
+ * | a | b |   |   |
+ * | c | d |   |   |
+ */
+layout(std140) uniform Triangle {
+    vec4 _model;
+    vec4 _projection;
+};
+
+void main() {
+    mat2 model = mat2(_model);
+    mat2 projection = mat2(_projection);
+
+    vec2 pos = vertexPos * model * projection;
+
+    gl_Position = vec4(pos.x, pos.y, 0, 1);
+    vertexColor = color;
+}
+
+
+--- END FILE: Resources\shaders\Triangle.vert ---
+
+
+--- START FILE: Resources\shaders\ui.frag ---
+#version 410 core
+out vec4 FragColor;
+in vec2 TexCoord;
+
+uniform sampler2D u_Texture;
+
+void main()
+{
+    FragColor = texture(u_Texture, TexCoord);
+}
+
+
+--- END FILE: Resources\shaders\ui.frag ---
+
+
+--- START FILE: Resources\shaders\ui.vert ---
+#version 410 core
+layout (location = 0) in vec2 aPos;
+layout (location = 1) in vec2 aTexCoord;
+
+out vec2 TexCoord;
+
+uniform mat4 u_Projection;
+uniform mat4 u_Model;
+
+void main()
+{
+    // 將頂點座標乘上 Model(位移) 和 Projection(正交投影) 矩陣
+    gl_Position = u_Projection * u_Model * vec4(aPos, 0.0, 1.0);
+    TexCoord = aTexCoord;
+}
+
+
+--- END FILE: Resources\shaders\ui.vert ---
+

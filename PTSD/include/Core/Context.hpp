@@ -25,7 +25,7 @@ public:
 
     //static std::shared_ptr<Context> GetInstance();
     static std::shared_ptr<Context>
-    Context::GetInstance(unsigned int width = 1280, unsigned int height = 720);
+    GetInstance(unsigned int width = 1280, unsigned int height = 720);
 
     bool GetExit() const { return m_Exit; }
     unsigned int GetWindowWidth() const { return m_WindowWidth; }
