@@ -5,7 +5,11 @@ project(SuperMarioKart)
 #set(FETCHCONTENT_FULLY_DISCONNECTED ON)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
+add_compile_definitions(_HAS_ITERATOR_DEBUGGING=0)
+add_compile_definitions(_ITERATOR_DEBUG_LEVEL=0)
 
 set(BUILD_UTILS OFF CACHE BOOL "Disable GLEW utilities" FORCE)
 # 關閉所有標準測試程式編譯
@@ -45,4 +49,4 @@ include_directories(external)
 target_include_directories(PTSD SYSTEM PRIVATE ${DEPENDENCY_INCLUDE_DIRS})
 
 # 3. 將編譯任務交棒給 Game 資料夾
-add_subdirectory(Game_)
+add_subdirectory(Game)

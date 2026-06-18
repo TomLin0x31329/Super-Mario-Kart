@@ -11,6 +11,7 @@ uniform vec2 u_CameraPos;    // 攝影機 XZ 座標 (純像素)
 uniform float u_CameraHeight;// 攝影機高度 (純像素，影響看多遠)
 uniform float u_CameraYaw;   // 攝影機朝向 (弧度)
 uniform float u_CameraPitch;
+uniform float u_CameraFOV;
 uniform vec2 u_TrackSize;    // 地圖真實尺寸 (例如 1024x1024)
 
 void main() 
@@ -27,8 +28,7 @@ void main()
     float z = u_CameraHeight / y;
 
     // 2. 螢幕水平映射 (fov 控制視野，1.0 剛好，越小畫面越放大)
-    float fov = 0.42; 
-    float x = (screenUV.x - 0.5) * 2.0 * fov; 
+    float x = (screenUV.x - 0.5) * 2.0 * u_CameraFOV; 
 
     // ====================================================
     // 3. 🌟 確保 Shader 的前後左右與 C++ 完全一致 🌟
