@@ -292,7 +292,7 @@ classDiagram
 
 以下為本專案所使用之素材與第三方開源資源來源清單，向所有無私分享資源的創作者與社群致以最深的謝意。
 
-## 音樂與音效 (Audio & Sound Effects)
+### 音樂與音效 (Audio & Sound Effects)
 
 背景音樂與音效多來自經典《Super Mario Kart》遊戲之拆包或原聲帶資源。
 
@@ -317,7 +317,7 @@ classDiagram
     * `racestart.wav` (起跑音效)
     * `thudpipe.wav` (撞擊水管)
 
-## 圖像與精靈圖 (Graphics & Sprites)
+### 圖像與精靈圖 (Graphics & Sprites)
 
 遊戲場景、UI、卡丁車動態精靈圖等視覺素材。
 
@@ -330,7 +330,7 @@ classDiagram
   * 使用素材：Mario Circuit 1 (包含 `track.png`, `sky.png`, `trees.png`, `collision.png`, `out_of_bounds.png`)、水管障礙物 (`pipe` LOD 系列)。
 
 
-## 🛠️ 第三方開源函式庫 (Third-Party Libraries)
+### 第三方開源函式庫 (Third-Party Libraries)
 
 本專案底層渲染與邏輯運算依賴以下優秀的開源函式庫與框架：
 
