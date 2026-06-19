@@ -285,3 +285,56 @@ classDiagram
 | 組員 | 貢獻比例 |
 | --- | --- |
 | 林政德 | 100% |
+
+## 素材來源標示 (Credits & Acknowledgments)
+
+本專案為學術研究與程式設計練習之復刻作品，所有遊戲內使用之影音與圖像素材版權皆歸原創作者或其所屬公司（Nintendo）所有。本專案絕不應用於任何商業營利行為。
+
+以下為本專案所使用之素材與第三方開源資源來源清單，向所有無私分享資源的創作者與社群致以最深的謝意。
+
+## 音樂與音效 (Audio & Sound Effects)
+
+背景音樂與音效多來自經典《Super Mario Kart》遊戲之拆包或原聲帶資源。
+
+* **背景音樂 (BGM)**
+  * 來源網站：[Khinsider](https://downloads.khinsider.com/game-soundtracks/album/super-mario-kart-gamerip)
+  * 使用曲目：
+    * `1-02. Title Screen`
+    * `1-03. Main Menu`
+    * `1-04. Race Fanfare`
+    * `1-05. Mario Circuit`
+    * `1-30. Mario Circuit (Final Lap)`
+    * `2-07. Final Lap Notice (Prototype 1992-04-13)`
+    * `2-09. New Record (Prototype 1992-04-13)`
+    * `2-12. Mario's Ranks (Prototype 1992-04-13)`
+
+* **遊戲音效 (SFX)**
+  * 來源網站：[Super Luigi Bros](https://www.superluigibros.com/super-mario-kart-sound-effects-wav)
+  * 使用音效：
+    * `coin.wav` (吃金幣)
+    * `menumove.wav` (切換選取)
+    * `menuselect.wav` (確認選取)
+    * `racestart.wav` (起跑音效)
+    * `thudpipe.wav` (撞擊水管)
+
+## 圖像與精靈圖 (Graphics & Sprites)
+
+遊戲場景、UI、卡丁車動態精靈圖等視覺素材。
+
+* **卡丁車與角色 (Karts & Drivers)**
+  * 來源網站：[The Spriters Resource](https://www.spriters-resource.com/snes/smariokart/)
+  * 使用素材：Mario Kart (22 視角精靈圖)、Peach Kart (22 視角精靈圖)、Lakitu (紅綠燈與過圈提示)。
+
+* **賽道與環境 (Tracks & Environments)**
+  * 來源網站：[The Spriters Resource](https://www.spriters-resource.com/snes/smariokart/)
+  * 使用素材：Mario Circuit 1 (包含 `track.png`, `sky.png`, `trees.png`, `collision.png`, `out_of_bounds.png`)、水管障礙物 (`pipe` LOD 系列)。
+
+
+## 🛠️ 第三方開源函式庫 (Third-Party Libraries)
+
+本專案底層渲染與邏輯運算依賴以下優秀的開源函式庫與框架：
+
+* **[PTSD 遊戲引擎](https://github.com/ntut-open-source-club/practical-tools-for-simple-design)**
+  * 簡介：由北科開源社 (NTUT Open Source Club) 維護開發之 C++ 輕量級 2D/3D 遊戲引擎封裝。
+* **[nlohmann/json](https://github.com/nlohmann/json)**
+  * 簡介：適用於現代 C++ 的 JSON 解析函式庫（用於解析賽道與關卡設定檔）。
