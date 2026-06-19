@@ -3,6 +3,7 @@
 #include "Core/TextureUtils.hpp"
 #include "Util/Logger.hpp"
 
+
 namespace Game::Renderer
 {
 	BackgroundRenderer::BackgroundRenderer(const std::string& imagePath, float scrollSpeed, glm::vec2 viewport)

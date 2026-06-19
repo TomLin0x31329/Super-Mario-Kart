@@ -1,3 +1,4 @@
+#include "pch.hpp"
 #include "App.h"
 
 #include "States/MenuState.h"
@@ -7,7 +8,7 @@
 
 
 namespace Game::Application
-{
+{                        
     void App::Start()
     {
         // 創建 FBO

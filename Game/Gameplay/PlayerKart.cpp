@@ -2,6 +2,10 @@
 
 #include "Util/Input.hpp"
 
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
 
 namespace Game::Gameplay
 {
@@ -49,14 +53,17 @@ namespace Game::Gameplay
 			int mapY = static_cast<int>(testY / 1.6f);
 			uint8_t r = 0, g = 0, b = 0;
 
-			if (colMap.GetPixelColor(mapX, mapY, r, g, b)) {
+			if (colMap.GetPixelColor(mapX, mapY, r, g, b))
+			{
 				if (r == 0 && g == 0 && b == 0) outIsGrass = true;
 				else if (r == 104 && g == 104 && b == 248) outIsWall = true;
 			}
-			else {
+			else
+			{
 				outIsWall = true; // 掉出地圖外視同撞牆
 			}
 			};
+
 		bool isWall = false, isGrass = false;
 		CheckTerrain(Position.x, Position.y, isWall, isGrass);
 		if (isGrass) {
@@ -193,10 +200,12 @@ namespace Game::Gameplay
 			});
 
 		int spriteIndex = 1;
-		if (it == m_MarioKartSpritesLUT.end()) {
+		if (it == m_MarioKartSpritesLUT.end()) 
+		{
 			spriteIndex = m_MarioKartSpritesLUT.back().second;
 		}
-		else {
+		else 
+		{
 			spriteIndex = it->second;
 		}
 

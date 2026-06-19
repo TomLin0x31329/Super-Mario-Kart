@@ -12,6 +12,9 @@ file(GLOB_RECURSE GAME_FILES_
 # 建立執行檔目標
 add_executable(MyGame ${GAME_FILES_})
 target_compile_definitions(MyGame PRIVATE _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING)
+if(MSVC)
+    target_compile_options(MyGame PRIVATE "/utf-8")
+endif()
 
 # 連結 PTSD 引擎與 SDL2main
 target_link_libraries(MyGame

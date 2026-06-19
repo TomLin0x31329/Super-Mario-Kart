@@ -2,8 +2,13 @@
 
 #include "pch.hpp"
 #include "Util/Image.hpp"
-
 #include "GameCore/LevelData.h"
+
+#include <vector>
+#include <cmath>
+#include <algorithm>
+#include <memory>
+#include <utility>
 
 namespace Game::Gameplay
 {
@@ -18,21 +23,19 @@ namespace Game::Gameplay
 	public:
 		glm::vec2 Position = { 920.0f * 1.6f, 589.0f * 1.6f };
 		glm::vec2 ExpectedDir = { 0.0f, -1.0f }; // 車頭朝向向量
-		glm::vec2 Velocity = { 0.0f, -0.01f };   // 真實移動向量 (包含速度大小)
+		glm::vec2 Velocity = { 0.0f, -0.01f };   // 真實移動向量
 
-		// LOD 區間加速度
 		std::vector<AccelTier> m_AccelerationCurve = {
-			{ 150.0f, 240.0f },  // 起步：加速度適中
-			{ 450.0f, 420.0f },  // 中段：爆發力強
-			{ 9999.f, 150.0f }   // 尾速：加速度銳減
+			{ 150.0f, 240.0f },
+			{ 450.0f, 420.0f },
+			{ 9999.f, 150.0f }
 		};
 
 		float m_MaxSpeed = 400.0f;
-		float m_Deceleration = 200.0f; // 自然滑行減阻
-		float m_BrakePower = 600.0f;   // 煞車力度
+		float m_Deceleration = 200.0f;
+		float m_BrakePower = 600.0f;
 
-		// 轉向與側滑參數
-		float m_TurnRate = 2.0f; // 方向盤轉速 (弧度/秒)
+		float m_TurnRate = 2.0f;
 		float m_NormalTurnFactor = 0.4f;
 		float m_DriftTurnFactor = 1.8f;
 		float m_Grip = 12.0f;
@@ -72,6 +75,7 @@ namespace Game::Gameplay
 
 		void GetSpriteForCamera(
 			float cameraYaw, std::shared_ptr<Util::Image>& outSprite, bool& outFlip, int lod = 0);
+
 		bool IsHitWall() const { return m_IsHitWall; }
 
 	};

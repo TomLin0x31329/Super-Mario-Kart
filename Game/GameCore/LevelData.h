@@ -2,8 +2,10 @@
 
 #include "pch.hpp"
 #include <glm/glm.hpp>
+#include <vector>
+#include <string>
+#include <cstdint>
 
-// 關卡場景數據
 namespace Game::GameCore
 {
     struct CollisionMap
@@ -15,7 +17,6 @@ namespace Game::GameCore
         bool GetPixelColor(int x, int y, uint8_t& r, uint8_t& g, uint8_t& b) const
         {
             if (x < 0 || x >= width || y < 0 || y >= height) return false;
-
             int index = (y * width + x) * 4;
             r = pixels[index];
             g = pixels[index + 1];
@@ -39,7 +40,6 @@ namespace Game::GameCore
         glm::vec2 pos;
         int direction;
     };
-
     struct LevelData
     {
         std::string name;

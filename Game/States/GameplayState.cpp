@@ -798,6 +798,7 @@ namespace Game::States
 				}
 				break;
 			}
+			break;
 		}
 
 		case GameplaySubState::ShowScore:

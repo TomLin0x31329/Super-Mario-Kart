@@ -84,8 +84,8 @@ namespace Game::States
 	class MenuState : public GameState
 	{
 	private:
-		std::unique_ptr<Renderer::UIRenderer> m_UIRenderer;
-		std::unique_ptr<Renderer::ScrollingUIRenderer> m_ScrollingUIRenderer;
+		std::unique_ptr<Game::Renderer::UIRenderer> m_UIRenderer;
+		std::unique_ptr<Game::Renderer::ScrollingUIRenderer> m_ScrollingUIRenderer;
 
 		std::vector<DriverUIItem> m_Drivers;
 
