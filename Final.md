@@ -31,13 +31,23 @@
 
 #### 按鍵說明
 
+##### 賽道駕駛操作
 * `W ` - 加速油門 (Accelerate)
 * `S ` - 煞車
 * `A / D` - 轉向方向盤 (Steering)
-* `Space (空白鍵)` - 選單頁面確認鍵
+* `Space` - 選單頁面確認鍵
 * `R` - Debug 用快速重來機制
 * `ESC` - 結束遊戲並退出
 
+##### 選單 UI 操作說明
+* `W / S` - 於主選單上下移動選取項目（如人數、規則模式切換）
+* `A / D` - 於車手選擇頁面進行 8 方向格位切換、於確認頁面切換 Yes / No 選項
+* `Space` - 選單頁面通用確認鍵（按下一頁推進至下一選單）
+
+##### 專案開發限制備註
+* **僅支援單人模式 (1P)**：主選單人數選擇階段僅開放「1 PLAYER」選項，若選擇雙人模式，系統將攔截無法推進。
+* **僅支援計時賽 (Time Trial)**：主選單模式選擇僅開放「TIME TRIAL」計時賽模式，若選擇排名模式，系統將攔截無法推進。
+* 
 #### 異常地形與障礙狀態
 
 * **賽道道路 (Road)**：100% 正常抓地力與最高速。
@@ -51,10 +61,10 @@
 | --- | --- |
 | 主選單待機畫面 | <img src="./FinalImg/Menu.png" width="550"> |
 | 角色選擇頁面 | <img src="./FinalImg/PlayerSelect.png" width="550"> |
-| Lakitu 起跑倒數倒計時 |  <img src="./FinalImg/LakituLight.png" width="550"> |
+| Lakitu 起跑倒數計時 |  <img src="./FinalImg/LakituLight.png" width="550"> |
 | 賽道畫面 | <img src="./FinalImg/InGame.png" width="550"> |
 | 過圈動畫提示特寫 | <img src="./FinalImg/Lap3.png" width="550"> |
-| 賽事結束成績結算頁面 | <img src="./FinalImg/End.png" width="550"> |
+| 結束成績結算頁面 | <img src="./FinalImg/End.png" width="550"> |
 
 ---
 
@@ -98,7 +108,7 @@ classDiagram
 
 ```
 
-#### 命名空間
+#### 物件及命名空間
 
 ```mermaid
 classDiagram
@@ -159,10 +169,9 @@ classDiagram
 
 ##### 不參與繼承的物件
 
-* 不參與繼承的獨立類別 (`class`，採取組合模式或獨立系統)：
 * `App` - 遊戲核心控制器，持有當前 `GameState` 的指標，負責驅動主迴圈與狀態機切換
-* `GameObject` - 地圖上的可互動物件（如金幣、水管、道具箱），以組合方式綁定碰撞體半徑與碰撞回調函式
-* `PlayerKart` - 玩家的卡丁車實體，封裝了所有的物理運動邏輯（加速、煞車、甩尾、摩擦力）與多角度視角的 Sprite 狀態計算
+* `GameObject` - 地圖上的可互動物件（如金幣、水管），以組合方式綁定碰撞體半徑與碰撞回調函式
+* `PlayerKart` - 玩家的卡丁車實體，封裝了所有的物理運動邏輯（加速、煞車、摩擦力）與多角度視角的 Sprite 狀態計算
 * `LevelLoader` - 關卡系統，負責解析 JSON 格式的賽道檔案與讀取 PNG 像素級碰撞圖 (`CollisionMap`)
 * `UIRenderer` - 負責 2D 靜態與動態 UI 繪製的渲染器（支援佇列繪製與正交投影）
 * `ScrollingUIRenderer` - 負責捲動背景（如天空、遠山）與無限捲動 UI 的渲染器
@@ -203,11 +212,11 @@ classDiagram
 ##### 1. Lambda 碰撞回調機制 (Collision Callbacks)
 
 為了讓 `GameObject` 保持輕量且不依賴外部系統，專案大量使用了 `std::function` 作為回調介面。
-在 `GameplayState::Start` 初始化地圖物件時，我們將處理金幣得分、播放音效、反彈物理運算等邏輯封裝進 Lambda 中，並注入給 `GameObject`。當 `GameObject::UpdateCollision` 偵測到邊界重疊時，便會直接觸發該 Lambda。地圖物件本身完全不需要知道系統如何計分或播放音效，達成了完美的職責分離。
+在 `GameplayState::Start` 初始化地圖物件時，將處理金幣得分、播放音效、反彈物理運算等邏輯封裝進 Lambda 中，並注入給 `GameObject`。當 `GameObject::UpdateCollision` 偵測到邊界重疊時，便會直接觸發該 Lambda。地圖物件本身完全不需要知道系統如何計分或播放音效，達成了完美的職責分離。
 
 ##### 2. 動態視角與多角度精靈圖 (Directional Sprites)
 
-在 2.5D 遊戲中，卡丁車需要根據攝影機的角度呈現不同的面向。透過 `GetAngleDifference` 計算「物件朝向向量」與「攝影機朝向向量」的夾角，並透過查表法 (`m_MarioKartSpritesLUT`) 利用二元搜尋 (`std::lower_bound`) 快速映射出對應的圖片索引。加上左右水平翻轉機制 (`outFlip = true`)，我們僅需 12 張素材就能流暢展現 22 個角度的 3D 視覺錯覺。
+在 2.5D 遊戲中，卡丁車需要根據攝影機的角度呈現不同的面向。透過 `GetAngleDifference` 計算「物件朝向向量」與「攝影機朝向向量」的夾角，並透過查表法 (`m_MarioKartSpritesLUT`) 利用二元搜尋 (`std::lower_bound`) 快速映射出對應的圖片索引。加上左右水平翻轉機制 (`outFlip = true`)，僅需 12 張素材就能流暢展現 22 個角度的 3D 視覺錯覺。
 
 #### 三、資料驅動與細節層次技術 (Data-Driven & LOD)
 
@@ -240,26 +249,19 @@ classDiagram
 
 1. **跨平台 MSVC 編譯器中文註解引發的「食字」語法大爆炸 Bug**
 * **問題**：專案 push 到 Git 後重新下載，在 Visual Studio 上編譯會噴出 100 個以上莫名其妙的「遺漏分號」、「this 只能在成員函數內使用」等慘烈報錯，但代碼明明沒有錯。
-* **解決方案**：發現這是因為微軟編譯器預設使用 ANSI 讀取 UTF-8 檔案，將中文註解（如「碼」、「蓋」）的結尾位元組誤認成了換行反斜線 `\\`，導致下一行的有效代碼全部被當成註解「吞掉」了。我們最終在 `CMakeLists.txt` 中加入 `target_compile_options(MyGame PRIVATE "/utf-8")`，強制編譯器用 UTF-8 解析，順利將錯誤歸零。
+* **解決方案**：發現這是因為微軟編譯器預設使用 ANSI 讀取 UTF-8 檔案，將中文註解（如「碼」、「蓋」）的結尾位元組誤認成了換行反斜線 `\\`，導致下一行的有效代碼全部被當成註解「吞掉」了。最終在 `CMakeLists.txt` 中加入 `target_compile_options(MyGame PRIVATE "/utf-8")`，強制編譯器用 UTF-8 解析，順利將錯誤歸零。
 
 2. **Mode 7 地面紋理頻繁動態綁定引發的效能隱患 (烘焙與局部修補技術)**
 * **問題**：賽道上有大量的金幣與地磚動畫，如果每個金幣都當作一個獨立的 3D Billboard 來渲染，會產生龐大的 Draw Call，且無法完美貼平具有透視感的 Mode 7 地面。
-* **解決方案**：實作 `BakeObject` 技術。在遊戲載入時，直接呼叫 `SDL_BlitSurface` 將金幣的 2D 像素「烙印」在賽道地圖表面（`workingTrackSurface_`），讓它隨 Mode 7 一起打包投影。當玩家踩到金幣後，利用 `RestoreBakedObject` 函數，僅抓取乾淨無污染的 `cleanTrackSurface_` 對應矩形像素進行局部局部修補覆蓋，完美兼顧了復古還原度與超高的執行期幀率。
+* **解決方案**：實作 `BakeObject` 技術。在遊戲載入時，直接呼叫 `SDL_BlitSurface` 將金幣的 2D 像素「烙印」在賽道地圖表面（`workingTrackSurface_`），讓它隨 Mode 7 一起打包投影。當玩家踩到金幣後，利用 `RestoreBakedObject` 函數，僅抓取乾淨無污染的 `cleanTrackSurface_` 對應矩形像素進行局部局部修補覆蓋，完美兼顧了復古還原度與高執行期幀率。
 
 3. **狀態機切換時的計時器殘留與視覺瞬間消失地雷 (Timer Carryover)**
 * **問題**：當玩家在計分板按下 Space 鍵準備回選單時，畫面原本應該有 0.8 秒的平滑淡出動畫，卻一幀都沒播直接卡進黑幕。
-* **解決方案**：這是在狀態機設計中非常經典的計時器未重置陷阱。因為 `m_StateTimer` 在計分板停留時一直在偷偷累加，進入淡出狀態的第一幀就已經大於 0.8 秒。我們在空白鍵按下判定內強制加上 `m_StateTimer = 0.0f;` 清空，並將 `ShowScore` 與 `AnimToMenu` 的渲染 case 合併，防止按下的瞬間計分板立刻消失，完美實現了平滑的畫面與音樂淡出。
+* **解決方案**：這是在狀態機設計中非常經典的計時器未重置陷阱。因為 `m_StateTimer` 在計分板停留時一直在偷偷累加，進入淡出狀態的第一幀就已經大於 0.8 秒。在空白鍵按下判定內強制加上 `m_StateTimer = 0.0f;` 清空，並將 `ShowScore` 與 `AnimToMenu` 的渲染 case 合併，防止按下的瞬間計分板立刻消失，完美實現了平滑的畫面與音樂淡出。
 
 4. **2.5D 廣告牌 (Billboard) 的深度排序閃爍與 Initializer List 報錯**
 * **問題：** 在同時渲染多根水管與對手卡丁車時，由於關閉了深度寫入，物件繪製順序錯亂導致遠處的水管遮擋了近處的車輛。此外，在 C++ 建構 RenderCommand 佇列時，頻繁遭遇編譯器的 Initializer List 類型推導報錯。
 * **解決方案：** 在 `BillboardRenderer` 中導入了 `drawQueue` 佇列機制。在每一幀遍歷物件時，先不立即發出 OpenGL Draw Call，而是計算好每個物件相對於攝影機的 `depth`，存入結構體佇列中。隨後使用 `std::sort` 依照深度由大到小（由遠到近）進行排序，最後再一次性批次渲染，解決了視覺遮擋問題；同時透過明確指定 `RenderCommand{...}` 結構體成員型別，修復了 C++ 編譯器的列表初始化報錯。
-
-
-3. **狀態機切換時的資源殘留與 UI 堆疊異常**
-* **問題：** 在遊戲狀態由 `GameplayState` 切換回 `MenuState` 時，先前註冊的 UI 渲染指令或背景音樂未能正確清空與淡出，導致畫面出現上一局的殘影。
-* **解決方案：** 嚴格落實了立即模式 UI (Immediate Mode UI) 的渲染哲學。在 `UIRenderer::Render()` 的尾端強制加入 `drawQueue_.clear();`，確保渲染指令僅存活於單一幀內。同時完善了 `GameState` 的 `End()` 生命週期函式，確保在指標交接給新的狀態前，所有綁定的音效指針與特定資源都能被安全地停止與重置。
-
-
 
 ### 自評
 
